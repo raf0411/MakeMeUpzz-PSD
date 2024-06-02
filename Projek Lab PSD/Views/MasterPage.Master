@@ -24,15 +24,15 @@
 
             <div class="middle-nav">
                 <%-- Kalo Customer --%>
-                <asp:Button onClick="btnOrderMakeup_Click" CssClass="btn" ID="btnOrderMakeup" runat="server" Text="Order Makeup" />
-                <asp:Button onClick="btnHistory_Click" CssClass="btn" ID="btnHistory" runat="server" Text="History" />
+<%--                <asp:Button onClick="btnOrderMakeup_Click" CssClass="btn" ID="btnOrderMakeup" runat="server" Text="Order Makeup" />
+                <asp:Button onClick="btnHistory_Click" CssClass="btn" ID="btnHistory" runat="server" Text="History" />--%>
 
                 <%-- Kalo Admin --%>
-                <%--<asp:Button onClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
+                <asp:Button onClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
                 <asp:Button onClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage Makeup" />
                 <asp:Button onClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Order Queue" />
                 <asp:Button onClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Transaction Report" />
-                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="Transaction History" />--%>
+                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="Transaction History" />
             </div>
 
             <div class="right-nav">

@@ -24,22 +24,49 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// btnOrderMakeup control.
+        /// btnHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnOrderMakeup;
+        protected global::System.Web.UI.WebControls.Button btnHome;
 
         /// <summary>
-        /// btnHistory control.
+        /// btnManageMakeup control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnHistory;
+        protected global::System.Web.UI.WebControls.Button btnManageMakeup;
+
+        /// <summary>
+        /// btnOrderQueue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOrderQueue;
+
+        /// <summary>
+        /// btnTransactionReport control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTransactionReport;
+
+        /// <summary>
+        /// btnTransactionHistory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnTransactionHistory;
 
         /// <summary>
         /// btnProfile control.
