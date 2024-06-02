@@ -43,7 +43,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,19 +75,201 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\MakeMeUpzzDatabase.mdf" />
+    <Content Include="App_Data\MakeMeUpzzDatabase_log.ldf">
+      <DependentUpon>MakeMeUpzzDatabase.mdf</DependentUpon>
+    </Content>
+    <Content Include="Models\MakeMeUpzzzModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MakeMeUpzzzModel.Context.cs</LastGenOutput>
+      <DependentUpon>MakeMeUpzzzModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\MakeMeUpzzzModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MakeMeUpzzzModel.edmx</DependentUpon>
+      <LastGenOutput>MakeMeUpzzzModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Styles\Main.css" />
+    <Content Include="Styles\Navbar.css" />
+    <Content Include="Views\HandleTransaction.aspx" />
+    <Content Include="Views\Home.aspx" />
+    <Content Include="Views\InsertMakeup.aspx" />
+    <Content Include="Views\InsertMakeupBrand.aspx" />
+    <Content Include="Views\InsertMakeupType.aspx" />
+    <Content Include="Views\ManageMakeup.aspx" />
+    <Content Include="Views\OrderMakeup.aspx" />
+    <Content Include="Views\Profile.aspx" />
+    <Content Include="Views\TransactionDetail.aspx" />
+    <Content Include="Views\TransactionHistory.aspx" />
+    <Content Include="Views\TransactionReport.aspx" />
+    <Content Include="Views\UpdateMakeup.aspx" />
+    <Content Include="Views\UpdateMakeupBrand.aspx" />
+    <Content Include="Views\UpdateMakeupType.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Cart.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MakeMeUpzzzModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeMeUpzzzModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MakeMeUpzzzModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MakeMeUpzzzModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MakeMeUpzzzModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Makeup.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MakeupBrand.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MakeupType.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransactionDetail.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TransactionHeader.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\HandleTransaction.aspx.cs">
+      <DependentUpon>HandleTransaction.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\HandleTransaction.aspx.designer.cs">
+      <DependentUpon>HandleTransaction.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeup.aspx.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeup.aspx.designer.cs">
+      <DependentUpon>InsertMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrand.aspx.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupBrand.aspx.designer.cs">
+      <DependentUpon>InsertMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\InsertMakeupType.aspx.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\InsertMakeupType.aspx.designer.cs">
+      <DependentUpon>InsertMakeupType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ManageMakeup.aspx.cs">
+      <DependentUpon>ManageMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ManageMakeup.aspx.designer.cs">
+      <DependentUpon>ManageMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderMakeup.aspx.cs">
+      <DependentUpon>OrderMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\OrderMakeup.aspx.designer.cs">
+      <DependentUpon>OrderMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionDetail.aspx.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionDetail.aspx.designer.cs">
+      <DependentUpon>TransactionDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionHistory.aspx.designer.cs">
+      <DependentUpon>TransactionHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TransactionReport.aspx.cs">
+      <DependentUpon>TransactionReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\TransactionReport.aspx.designer.cs">
+      <DependentUpon>TransactionReport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeup.aspx.cs">
+      <DependentUpon>UpdateMakeup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeup.aspx.designer.cs">
+      <DependentUpon>UpdateMakeup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrand.aspx.cs">
+      <DependentUpon>UpdateMakeupBrand.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupBrand.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupBrand.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupType.aspx.cs">
+      <DependentUpon>UpdateMakeupType.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateMakeupType.aspx.designer.cs">
+      <DependentUpon>UpdateMakeupType.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EntityDeploy Include="Models\MakeMeUpzzzModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MakeMeUpzzzModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\MakeMeUpzzzModel.edmx.diagram">
+      <DependentUpon>MakeMeUpzzzModel.edmx</DependentUpon>
+    </Content>
     <None Include="packages.config" />
+    <Content Include="Views\MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
