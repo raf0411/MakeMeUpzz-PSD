@@ -1,0 +1,53 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Projek_Lab_PSD.Views.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>MakeMeUpzzz</title>
+
+    <%-- CSS --%>
+    <link href="/Styles/Navbar.css" rel="stylesheet" />
+    <link href="/Styles/Main.css" rel="stylesheet" />
+    <link href="/Styles/Home.css" rel="stylesheet" />
+    <link href="/Styles/ManageMakeup.css" rel="stylesheet" />
+
+    <%-- FONTS --%>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="navbar">
+            <h2 class="logo">
+                <a href="Home.aspx">💄MakeMeUpzzz</a> 
+            </h2>
+
+            <div class="middle-nav">
+                <%-- Kalo Customer --%>
+<%--                <asp:Button onClick="btnOrderMakeup_Click" CssClass="btn" ID="btnOrderMakeup" runat="server" Text="Order Makeup" />
+                <asp:Button onClick="btnHistory_Click" CssClass="btn" ID="btnHistory" runat="server" Text="History" />--%>
+
+                <%-- Kalo Admin --%>
+                <asp:Button onClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
+                <asp:Button onClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage" />
+                <asp:Button onClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Queue" />
+                <asp:Button onClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Report" />
+                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="History" />
+            </div>
+
+            <div class="right-nav">
+                <asp:Button onClick="btnProfile_Click" CssClass="btn" ID="btnProfile" runat="server" Text="Profile" />
+                <asp:Button onClick="btnLogout_Click" CssClass="btn" ID="btnLogout" runat="server" Text="Logout" />
+            </div>
+
+        </div>
+
+        <div class="content">
+            <asp:ContentPlaceHolder ID="content" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
