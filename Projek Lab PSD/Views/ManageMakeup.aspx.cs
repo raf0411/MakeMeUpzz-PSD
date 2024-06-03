@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -87,9 +88,14 @@ namespace Projek_Lab_PSD.Views
         protected void MakeupTypeGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            MakeupTypeHandler makeupTypeHandler = new MakeupTypeHandler();
+
             GridViewRow row = MakeupTypeGrid.Rows[e.RowIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            makeupTypeRepo.DeleteMakeupTypeByID(id);
+
+            makeupTypeHandler.DeleteMakeupType(id);
+
+            //makeupTypeRepo.DeleteMakeupTypeByID(id);
 
             makeupTypes = makeupTypeRepo.GetMakeupTypes();
             MakeupTypeGrid.DataSource = makeupTypes;
@@ -106,10 +112,13 @@ namespace Projek_Lab_PSD.Views
 
         protected void MakeupBrandGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            MakeupBrandHandler makeupBrandHandler = new MakeupBrandHandler();
             MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
             GridViewRow row = MakeupBrandGrid.Rows[e.RowIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            makeupBrandRepo.DeleteMakeupBrandByID(id);
+
+            makeupBrandHandler.DeleteMakeupBrand(id);
+            //makeupBrandRepo.DeleteMakeupBrandByID(id);
 
             makeupBrands= makeupBrandRepo.GetMakeupBrands();
             MakeupBrandGrid.DataSource = makeupBrands;

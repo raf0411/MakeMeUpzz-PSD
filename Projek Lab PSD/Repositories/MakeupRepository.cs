@@ -35,6 +35,12 @@ namespace Projek_Lab_PSD.Repositories
             db.SaveChanges();
         }
 
+        public int DeleteMakeup(List<Makeup> Makeups)
+        {
+            db.Makeups.RemoveRange(Makeups);
+            return db.SaveChanges();
+        }
+
         public Makeup GetMakeupByID(int MakeupID)
         {
             return db.Makeups.Find(MakeupID);

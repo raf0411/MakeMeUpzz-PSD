@@ -5,8 +5,8 @@
         <div class="username-role-container">
             <h1 class="home-title">Home</h1>
 
-            <p>| Hello @<asp:Label ID="usernameLbl" runat="server" Text=""></asp:Label>
-                | You are
+            <p>| Welcome Back @<asp:Label ID="usernameLbl" runat="server" Text=""></asp:Label>!
+                | Your role is
                 <asp:Label ID="roleLbl" runat="server" Text=""></asp:Label></p>
         </div>
 

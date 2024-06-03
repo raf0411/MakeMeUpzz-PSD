@@ -21,6 +21,15 @@ namespace Projek_Lab_PSD.Repositories
             return (from x in db.Users where x.UserRole.Equals("Customer") select x).ToList();
         }
 
+        public User GetUser(String username, String password)
+        {
+            return (from x in db.Users
+                    where x.Username.Equals(username) 
+                         && x.UserPassword.Equals(password)
+                    select x)
+                    .FirstOrDefault();
+        }
+
         public int GetLastUserID()
         {
             return (from x in db.Users select x.UserID).ToList().LastOrDefault();

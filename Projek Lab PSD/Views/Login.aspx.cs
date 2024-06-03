@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,12 @@ namespace Projek_Lab_PSD.Views
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
+            UserRepository userRepo = new UserRepository();
             String username = UsernameTB.Text;
             String password = PasswordTB.Text;
             bool isRemember = rememberMeCheck.Checked;
 
-            var user = (from x in db.Users 
-                        where x.Username.Equals(username) && x.UserPassword.Equals(password) 
-                        select x)
-                        .FirstOrDefault();
+            var user = userRepo.GetUser(username, password);
 
             ErrorLbl.ForeColor = System.Drawing.Color.Red;
 
@@ -56,21 +55,9 @@ namespace Projek_Lab_PSD.Views
 
                 Response.Redirect("~/Views/Home.aspx");
             }
-            else if (username == "")
-            {
-                ErrorLbl.Text = "Username may not be empty!";
-            }
-            else if (password == "")
-            {
-                ErrorLbl.Text = "Password may not be empty!";
-            }
-            else if (rememberMeCheck.Checked)
-            {
-                // TODO
-            }
             else if(user == null)
             {
-                ErrorLbl.Text = "User does not exists!";
+                ErrorLbl.Text = AuthController.doLogin(username, password);
             }
         }
     }

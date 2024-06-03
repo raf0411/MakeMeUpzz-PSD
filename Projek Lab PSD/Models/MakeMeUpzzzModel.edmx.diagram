@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8c0637d894c94dd38f8a67409436168d" Name="Diagram1">
-        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Cart" Width="1.5" PointX="7.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Cart" Width="1.5" PointX="7.375" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.MakeupBrand" Width="1.5" PointX="0.5" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Makeup" Width="1.5" PointX="4.125" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Makeup" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.MakeupType" Width="1.5" PointX="0.5" PointY="7.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.TransactionDetail" Width="1.5" PointX="4.375" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.TransactionHeader" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
