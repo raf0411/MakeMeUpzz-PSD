@@ -6,7 +6,7 @@
             <h1 class="home-title">Home</h1>
 
             <p>| Welcome Back @<asp:Label ID="usernameLbl" runat="server" Text=""></asp:Label>!
-                | You role is
+                | Your role is
                 <asp:Label ID="roleLbl" runat="server" Text=""></asp:Label></p>
         </div>
 
