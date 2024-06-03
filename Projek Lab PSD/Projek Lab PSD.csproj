@@ -162,6 +162,7 @@
     <Compile Include="Repositories\MakeupBrandRepository.cs" />
     <Compile Include="Repositories\MakeupRepository.cs" />
     <Compile Include="Repositories\MakeupTypeRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Views\HandleTransaction.aspx.cs">
       <DependentUpon>HandleTransaction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

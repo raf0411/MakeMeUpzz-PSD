@@ -11,15 +11,62 @@ namespace Projek_Lab_PSD.Views
 {
     public partial class Home : System.Web.UI.Page
     {
-        public List<Makeup> makeups = null;
+        public List<User> users = null;
+        private MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            MakeupRepository makeupRepo = new MakeupRepository();
+            ListGridContainer.Visible = false;
 
-            makeups = makeupRepo.GetMakeups();
-            MakeUpGrid.DataSource = makeups;
-            MakeUpGrid.DataBind();
+            UserRepository userRepo = new UserRepository();
+
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                User user;
+
+                if (Session["user"] == null)
+                {
+                    int id = Convert.ToInt32(Request.Cookies["user_cookie"].Value);
+                    user = (from x in db.Users where x.UserID == id select x).FirstOrDefault();
+                    Session["user"] = user;
+                }
+                else
+                {
+                    user = (User) Session["user"];
+                }
+
+                usernameLbl.Text = user.Username;
+                roleLbl.Text = user.UserRole;
+
+                if (Application["user_count"] != null)
+                {
+                    UserOnlineCount.Text = Application["user_count"] + " User(s) Online";
+                }
+
+                if (user.UserRole.Equals("Admin"))
+                {
+                    ListGridContainer.Visible = true;
+
+                    var q = (from x in db.Users select x);
+
+                    foreach(var x in q)
+                    {
+                        UserList.Items.Add(x.Username);
+                    }
+                }
+                else if (user.UserRole.Equals("Customer"))
+                {
+                    ListGridContainer.Visible = false;
+                }
+            }
+
+            users = userRepo.GetCustomers();
+            UsersGrid.DataSource = users;
+            UsersGrid.DataBind();
         }
     }
 }

@@ -2,21 +2,40 @@
 
 <asp:Content ID="HomePage" ContentPlaceHolderID="content" runat="server">
     <div class="home-page">
-        <h1 class="home-title">Home</h1>
+        <div class="username-role-container">
+            <h1 class="home-title">Home</h1>
+
+            <p>| Hello @<asp:Label ID="usernameLbl" runat="server" Text=""></asp:Label>
+                | You are
+                <asp:Label ID="roleLbl" runat="server" Text=""></asp:Label></p>
+        </div>
+
+        <asp:Label ID="UserOnlineCount" runat="server" Text="0 User(s) Online"></asp:Label>
+
         <hr />
 
-        <div class="grid-view">
-            <asp:GridView ID="MakeUpGrid" runat="server" AutoGenerateColumns="False" CssClass="grid">
-                <Columns>
-                    <asp:BoundField DataField="MakeupID" HeaderText="Makeup ID" SortExpression="MakeupID" />
-                    <asp:BoundField DataField="MakeupName" HeaderText="Makeup Name" SortExpression="MakeupName" />
-                    <asp:BoundField DataField="MakeupPrice" HeaderText="Makeup Price" SortExpression="MakeupPrice" />
-                    <asp:BoundField DataField="MakeupWeight" HeaderText="Makeup Weight" SortExpression="MakeupWeight"/>
-                    <asp:BoundField DataField="MakeupType.MakeupTypeName" HeaderText="Makeup Type" SortExpression="MakeupType.MakeupTypeName" />
-                    <asp:BoundField DataField="MakeupBrand.MakeupBrandName" HeaderText="Makeup Brand" SortExpression="MakeupBrand.MakeupBrandName" />
-                </Columns>
-            </asp:GridView>
+        <div class="list-grid-container" runat="server" id="ListGridContainer">
+            <div class="user-list-container">
+                <h1>Users List</h1>
+
+                <asp:ListBox ID="UserList" runat="server" Width="300px"></asp:ListBox>
+            </div>
+
+            <div class="grid-view">
+                <h2>Customer Data</h2>
+                <asp:GridView ID="UsersGrid" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="UserID" HeaderText="UserID" SortExpression="UserID" />
+                        <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
+                        <asp:BoundField DataField="UserDOB" HeaderText="UserDOB" SortExpression="UserDOB" />
+                        <asp:BoundField DataField="UserGender" HeaderText="Gender" SortExpression="UserGender" />
+                        <asp:BoundField DataField="UserRole" HeaderText="Role" SortExpression="UserRole" />
+                    </Columns>
+                </asp:GridView>
+            </div>
         </div>
+
+
     </div>
 
 
