@@ -51,6 +51,15 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.WebControls.TextBox MakeupBrandRatingTB;
 
         /// <summary>
+        /// ErrorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorLbl;
+
+        /// <summary>
         /// UpdateBtn control.
         /// </summary>
         /// <remarks>

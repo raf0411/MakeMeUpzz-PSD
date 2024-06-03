@@ -105,6 +105,15 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.WebControls.DropDownList MakeupBrandDropdown;
 
         /// <summary>
+        /// ErrorLbl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ErrorLbl;
+
+        /// <summary>
         /// InsertBtn control.
         /// </summary>
         /// <remarks>
