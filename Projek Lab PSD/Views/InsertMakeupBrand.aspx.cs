@@ -55,9 +55,9 @@ namespace Projek_Lab_PSD.Views
 
             int MakeupBrandID = GenerateMakeupBrandID();
             String MakeupBrandName = MakeupBrandNameTB.Text;
-            int MakeupBrandRating = Convert.ToInt32(MakeupBrandRatingTB.Text);
+            String MakeupBrandRating = MakeupBrandRatingTB.Text;
 
-            makeupBrandRepo.InsertMakeupBrand(MakeupBrandID, MakeupBrandName, MakeupBrandRating);
+            makeupBrandRepo.InsertMakeupBrand(MakeupBrandID, MakeupBrandName, Convert.ToInt32(MakeupBrandRating));
 
             Response.Redirect("~/Views/ManageMakeup.aspx");
         }

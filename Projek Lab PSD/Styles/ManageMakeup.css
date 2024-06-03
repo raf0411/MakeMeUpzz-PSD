@@ -16,12 +16,7 @@
     margin-bottom: 1rem;
 }
 
-.btn-container{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-}
+
 
 .btn-container .btn{
     background: black;
@@ -30,6 +25,13 @@
     color: #FEFEFE;
     border-radius: 2rem;
     cursor: pointer;
+}
+
+.btn-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3rem;
 }
 
 .grid-view{

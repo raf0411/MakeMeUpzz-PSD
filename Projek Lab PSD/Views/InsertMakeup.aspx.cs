@@ -1,4 +1,6 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -43,45 +45,24 @@ namespace Projek_Lab_PSD.Views
             }
         }
 
-        public int GenerateMakeupID()
-        {
-            MakeupRepository makeupRepo = new MakeupRepository();
-
-            int newID = 0;
-            int lastID = makeupRepo.GetLastMakeupID();
-
-            if(lastID == null)
-            {
-                lastID = 1;
-            }
-            else
-            {
-                lastID++;
-            }
-
-            newID = lastID;
-
-            return newID;
-        }
-
         protected void InsertBtn_Click(object sender, EventArgs e)
         {
-            MakeupRepository makeupRepo = new MakeupRepository();
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
-
-            int MakeupID = GenerateMakeupID();
             String MakeupName = MakeupNameTB.Text;
             int MakeupPrice = Convert.ToInt32(MakeupPriceTB.Text);
             int MakeupWeight = Convert.ToInt32(MakeupWeightTB.Text);
             String MakeupTypeName = MakeupTypeDropdown.Text;
             String MakeupBrandName = MakeupBrandDropdown.Text;
-            int MakeupTypeID = makeupTypeRepo.GetMakeupTypeIDByName(MakeupTypeName);
-            int MakeupBrandID = makeupBrandRepo.GetMakeupBrandIDByName(MakeupBrandName);
+            int typeSelectedIndex = MakeupTypeDropdown.SelectedIndex;
+            int brandSelectedIndex = MakeupBrandDropdown.SelectedIndex;
 
-            makeupRepo.InsertMakeup(MakeupID, MakeupName, MakeupPrice, MakeupWeight, MakeupTypeID, MakeupBrandID);
+            ErrorLbl.Text = MakeupController.validateMakeup(MakeupName, MakeupPrice, MakeupWeight, typeSelectedIndex, brandSelectedIndex);
 
-            Response.Redirect("~/Views/ManageMakeup.aspx");
+            if (ErrorLbl.Text.Equals(""))
+            {
+                MakeupHandler.InsertMakeup(MakeupName,  MakeupPrice, MakeupWeight, MakeupTypeName, MakeupBrandName);
+                Response.Redirect("~/Views/ManageMakeup.aspx");
+            }
+
         }
     }
 }
