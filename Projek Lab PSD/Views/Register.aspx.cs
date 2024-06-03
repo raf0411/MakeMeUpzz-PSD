@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -21,7 +23,7 @@ namespace Projek_Lab_PSD.Views
             String password = PasswordTB.Text;
             String confirmedPassword = ConfirmPassTB.Text;
             String email = EmailTB.Text;
-            string dob = Request.Form["DOB"];
+            DateTime DOB = Convert.ToDateTime(DateOfBirthTB.Text);
         
             if(username == "")
             {
@@ -55,7 +57,7 @@ namespace Projek_Lab_PSD.Views
             {
                 ErrorLbl.Text = "Confirmed Password must match!";
             }
-            else if (string.IsNullOrEmpty(dob))
+            else if (DOB.Equals(""))
             {
                 ErrorLbl.Text = "Date of birth must be filled!";
             }
@@ -63,8 +65,44 @@ namespace Projek_Lab_PSD.Views
             {
                 ErrorLbl.Text = "User Registered Successfully!";
                 ErrorLbl.ForeColor = System.Drawing.Color.Green;
-                Response.Redirect("~/Views/Login.aspx");
+                RegisterUser();
             }
+        }
+        public int GenerateUserID()
+        {
+            UserRepository userRepo = new UserRepository();
+
+            int newID = 0;
+            int lastID = userRepo.GetLastUserID();
+
+            if (lastID == null)
+            {
+                lastID = 1;
+            }
+            else
+            {
+                lastID++;
+            }
+
+            newID = lastID;
+
+            return newID;
+        }
+
+        private void RegisterUser()
+        {
+            UserRepository userRepo = new UserRepository();
+
+            int newID = GenerateUserID();
+            String newUsername = UsernameTB.Text.ToString();
+            String newEmail = EmailTB.Text.ToString();
+            DateTime newDOB = Convert.ToDateTime(DateOfBirthTB.Text);
+            String newGender = GenderList.SelectedValue.ToString();
+            String newRole = "Customer";
+            String newPassword = ConfirmPassTB.Text.ToString();
+
+            userRepo.InsertUser(newID, newUsername, newEmail, newDOB, newGender, newRole, newPassword);
+            Response.Redirect("~/Views/Login.aspx");
         }
 
         private bool IsAlphanumeric(String password)

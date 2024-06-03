@@ -27,7 +27,7 @@
         </div>
         <div class="text-box-lbl">
             <asp:Label ID="GenderLbl" runat="server" Text="Gender" CssClass="lbl"></asp:Label>
-            <asp:RadioButtonList ID="GenderList" runat="server">
+            <asp:RadioButtonList ID="GenderList" runat="server" >
                 <asp:ListItem>Male</asp:ListItem>
                 <asp:ListItem>Female</asp:ListItem>
             </asp:RadioButtonList>
@@ -45,7 +45,7 @@
 
         <div class="text-box-lbl">
             <asp:Label ID="DateOfBirthLbl" runat="server" Text="Date of Birth" CssClass="lbl"></asp:Label>
-            <input type="date" id="dob" name="DOB" />
+            <asp:TextBox TextMode="DateTime" ID="DateOfBirthTB" runat="server" CssClass="input" placeholder="e.g 01/01/2001"></asp:TextBox>
         </div>
 
         <div>
