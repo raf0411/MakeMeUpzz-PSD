@@ -21,25 +21,27 @@
     <form id="form1" runat="server">
         <div class="navbar">
             <h2 class="logo">
-                <a href="Home.aspx">💄MakeMeUpzzz</a> 
+                <a href="Home.aspx">💄MakeMeUpzzz</a>
             </h2>
 
             <div class="middle-nav">
-                <%-- Kalo Customer --%>
-<%--                <asp:Button onClick="btnOrderMakeup_Click" CssClass="btn" ID="btnOrderMakeup" runat="server" Text="Order Makeup" />
-                <asp:Button onClick="btnHistory_Click" CssClass="btn" ID="btnHistory" runat="server" Text="History" />--%>
+                <div runat="server" id="CustomerNav" class="customer-nav">
+                    <asp:Button OnClick="btnOrderMakeup_Click" CssClass="btn" ID="btnOrderMakeup" runat="server" Text="Order" />
+                    <asp:Button OnClick="btnHistory_Click" CssClass="btn" ID="btnHistory" runat="server" Text="History" />
+                </div>
 
-                <%-- Kalo Admin --%>
-                <asp:Button onClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
-                <asp:Button onClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage" />
-                <asp:Button onClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Queue" />
-                <asp:Button onClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Report" />
-                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="History" />
+                <div runat="server" id="AdminNav" class="admin-nav">
+                    <asp:Button OnClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
+                    <asp:Button OnClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage" />
+                    <asp:Button OnClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Queue" />
+                    <asp:Button OnClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Report" />
+                    <asp:Button OnClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="History" />
+                </div>
             </div>
 
             <div class="right-nav">
-                <asp:Button onClick="btnProfile_Click" CssClass="btn" ID="btnProfile" runat="server" Text="Profile" />
-                <asp:Button onClick="btnLogout_Click" CssClass="btn" ID="btnLogout" runat="server" Text="Logout" />
+                <asp:Button OnClick="btnProfile_Click" CssClass="btn" ID="btnProfile" runat="server" Text="Profile" />
+                <asp:Button OnClick="btnLogout_Click" CssClass="btn" ID="btnLogout" runat="server" Text="Logout" />
             </div>
 
         </div>

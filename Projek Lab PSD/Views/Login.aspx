@@ -23,7 +23,7 @@
         </div>
         <div class="text-box-lbl">
             <asp:Label ID="PasswordLbl" runat="server" Text="Password" CssClass="lbl"></asp:Label>
-            <asp:TextBox ID="PasswordTB" runat="server" CssClass="input" placeholder="Password"></asp:TextBox>
+            <asp:TextBox TextMode="Password" ID="PasswordTB" runat="server" CssClass="input" placeholder="Password"></asp:TextBox>
         </div>
 
         <div class="check-box">

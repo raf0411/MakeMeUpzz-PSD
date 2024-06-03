@@ -23,7 +23,7 @@
         </div>
         <div class="text-box-lbl">
             <asp:Label ID="EmailLbl" runat="server" Text="Email" CssClass="lbl"></asp:Label>
-            <asp:TextBox ID="EmailTB" runat="server" CssClass="input" placeholder="e.g user@email.com"></asp:TextBox>
+            <asp:TextBox TextMode="Email" ID="EmailTB" runat="server" CssClass="input" placeholder="e.g user@email.com"></asp:TextBox>
         </div>
         <div class="text-box-lbl">
             <asp:Label ID="GenderLbl" runat="server" Text="Gender" CssClass="lbl"></asp:Label>
@@ -35,12 +35,12 @@
 
         <div class="text-box-lbl">
             <asp:Label ID="PasswordLbl" runat="server" Text="Password" CssClass="lbl"></asp:Label>
-            <asp:TextBox ID="PasswordTB" runat="server" CssClass="input" placeholder="Password"></asp:TextBox>
+            <asp:TextBox TextMode="Password" ID="PasswordTB" runat="server" CssClass="input" placeholder="Password"></asp:TextBox>
         </div>
 
         <div class="text-box-lbl">
             <asp:Label ID="ConfirmPassLbl" runat="server" Text="Confirm password" CssClass="lbl"></asp:Label>
-            <asp:TextBox ID="ConfirmPassTB" runat="server" CssClass="input" placeholder="Confirm password"></asp:TextBox>
+            <asp:TextBox TextMode="Password" ID="ConfirmPassTB" runat="server" CssClass="input" placeholder="Confirm password"></asp:TextBox>
         </div>
 
         <div class="text-box-lbl">

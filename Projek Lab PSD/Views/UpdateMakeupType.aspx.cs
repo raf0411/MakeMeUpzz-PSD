@@ -13,6 +13,20 @@ namespace Projek_Lab_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                User user = (User)Session["user"]; ;
+
+                if (!user.UserRole.Equals("Admin"))
+                {
+                    Response.Redirect("Home.aspx");
+                }
+            }
+
             MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
 
             if (IsPostBack == false)

@@ -41,11 +41,11 @@
     text-decoration: underline;
 }
 
-.navbar .middle-nav {
+.navbar .middle-nav .customer-nav, .navbar .middle-nav .admin-nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 1.325rem;
+    gap: 1.5rem;
     color: #1a1d28;
 }
 

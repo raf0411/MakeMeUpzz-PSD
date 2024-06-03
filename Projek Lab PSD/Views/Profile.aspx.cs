@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Projek_Lab_PSD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,23 @@ namespace Projek_Lab_PSD.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+            else
+            {
+                User user = (User)Session["user"]; ;
 
+                if (user.UserRole.Equals("Admin"))
+                {
+                    // TODO
+                }
+                else if (user.UserRole.Equals("Customer"))
+                {
+                    // TODO
+                }
+            }
         }
     }
 }

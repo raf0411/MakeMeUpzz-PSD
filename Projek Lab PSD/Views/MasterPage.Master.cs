@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,9 +11,23 @@ namespace Projek_Lab_PSD.Views
 {
     public partial class MasterPage : System.Web.UI.MasterPage
     {
+        private MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            CustomerNav.Visible = false;
+            AdminNav.Visible = false;
 
+            User user = (User)Session["user"];
+
+            if (user.UserRole.Equals("Customer"))
+            {
+                CustomerNav.Visible = true;
+            }
+            else if (user.UserRole.Equals("Admin"))
+            {
+                AdminNav.Visible = true;
+            }
         }
 
         protected void btnHome_Click(object sender, EventArgs e)
@@ -41,7 +57,16 @@ namespace Projek_Lab_PSD.Views
 
         protected void btnLogout_Click(object sender, EventArgs e)
         {
-            // TODO
+            string[] cookies = Request.Cookies.AllKeys;
+
+            foreach(string cookie in cookies)
+            {
+                Response.Cookies[cookie].Expires = DateTime.Now.AddDays(-1);
+            }
+
+            Application["user_count"] = ((int)Application["user_count"] - 1);
+            Session.Remove("user");
+            Response.Redirect("Login.aspx");
         }
 
         protected void btnOrderMakeup_Click(object sender, EventArgs e)
