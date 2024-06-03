@@ -13,5 +13,33 @@ namespace Projek_Lab_PSD.Views
         {
 
         }
+
+        protected void LoginBtn_Click(object sender, EventArgs e)
+        {
+            String username = UsernameTB.Text;
+            String password = PasswordTB.Text;
+
+            ErrorLbl.ForeColor = System.Drawing.Color.Red;
+
+            if (username == "")
+            {
+                ErrorLbl.Text = "Username may not be empty!";
+            }
+            else if (password == "")
+            {
+                ErrorLbl.Text = "Password may not be empty!";
+            }
+            else if (rememberMeCheck.Checked)
+            {
+                // TODO
+            }
+            else
+            {
+                ErrorLbl.Text = "User Login Successfully!";
+                ErrorLbl.ForeColor = System.Drawing.Color.Green;
+
+                Response.Redirect("~/Views/Home.aspx");
+            }
+        }
     }
 }

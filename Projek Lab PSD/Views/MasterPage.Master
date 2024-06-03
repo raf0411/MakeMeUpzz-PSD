@@ -9,6 +9,8 @@
     <%-- CSS --%>
     <link href="/Styles/Navbar.css" rel="stylesheet" />
     <link href="/Styles/Main.css" rel="stylesheet" />
+    <link href="/Styles/Home.css" rel="stylesheet" />
+    <link href="/Styles/ManageMakeup.css" rel="stylesheet" />
 
     <%-- FONTS --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +21,7 @@
     <form id="form1" runat="server">
         <div class="navbar">
             <h2 class="logo">
-                <a href="Home.aspx">MakeMeUpzzz</a> 
+                <a href="Home.aspx">💄MakeMeUpzzz</a> 
             </h2>
 
             <div class="middle-nav">
@@ -29,10 +31,10 @@
 
                 <%-- Kalo Admin --%>
                 <asp:Button onClick="btnHome_Click" CssClass="btn" ID="btnHome" runat="server" Text="Home" />
-                <asp:Button onClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage Makeup" />
-                <asp:Button onClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Order Queue" />
-                <asp:Button onClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Transaction Report" />
-                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="Transaction History" />
+                <asp:Button onClick="btnManageMakeup_Click" CssClass="btn" ID="btnManageMakeup" runat="server" Text="Manage" />
+                <asp:Button onClick="btnOrderQueue_Click" CssClass="btn" ID="btnOrderQueue" runat="server" Text="Queue" />
+                <asp:Button onClick="btnTransactionReport_Click" CssClass="btn" ID="btnTransactionReport" runat="server" Text="Report" />
+                <asp:Button onClick="btnTransactionHistory_Click" CssClass="btn" ID="btnTransactionHistory" runat="server" Text="History" />
             </div>
 
             <div class="right-nav">

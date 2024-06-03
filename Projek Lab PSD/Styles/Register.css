@@ -1,0 +1,52 @@
+﻿body {
+    display: grid;
+    place-items: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.125rem;
+    background: #f7e4cd;
+}
+
+.error-lbl {
+    color: red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.text-box-lbl {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sign-up-lbl {
+    font-size: 3rem;
+    margin-bottom: 25px;
+    margin-top: 0px;
+}
+
+.text-box-lbl .lbl {
+    font-weight: bold;
+}
+
+.text-box-lbl .input {
+    border: none;
+    background: hsl(33, 50%, 80%);
+    outline: none;
+    padding: .8rem 1.5rem;
+    border-radius: .3rem;
+}
+
+.register-btn {
+    border: none;
+    background: black;
+    color: #FEFEFE;
+    border-radius: 4px;
+    height: 2.5rem;
+    cursor: pointer;
+    font-weight: bold;
+}

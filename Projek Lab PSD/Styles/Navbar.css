@@ -6,7 +6,7 @@
 */
 
 .navbar {
-    background-color: #FFE0B5;
+    background-color: #f7e4cd;
     width: 100%;
     display: flex;
     align-items: center;
@@ -15,21 +15,22 @@
     top: 0;
     left: 0;
     z-index: 99;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /*box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
     /*position: fixed;*/
+    border-bottom: solid;
+    border-bottom-width: 1px;
 }
 
 .logo a {
     text-decoration: none;
-    color: rosybrown;
+    color: deeppink;
 }
 
 .navbar .btn {
     background: none;
     border: none;
-    color: brown;
-    font-weight: bold;
     cursor: pointer;
+    font-size: .925rem;
 }
 
 .navbar .btn:hover{
@@ -44,7 +45,8 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    gap: 5rem;
+    gap: 1.325rem;
+    color: #1a1d28;
 }
 
 .navbar .right-nav {
@@ -55,11 +57,12 @@
 }
 
 .navbar #btnLogout {
-    background: #F8C794;
+    background: #1a1d28;
     color: #FEFEFE;
     padding: .5rem 1rem;
     border-radius: 24px;
     transition: .2s;
+    font-weight: bold;
 }
 
 .navbar #btnLogout:hover {

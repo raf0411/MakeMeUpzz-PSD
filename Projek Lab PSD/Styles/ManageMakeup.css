@@ -1,0 +1,41 @@
+﻿.manage-makeup{
+    padding: 1rem;
+}
+
+.grid {
+    text-align: center;
+}
+
+.grid-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.btn-container .btn{
+    background: black;
+    border: none;
+    padding: .5rem 1rem;
+    color: #FEFEFE;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+.grid-view{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
