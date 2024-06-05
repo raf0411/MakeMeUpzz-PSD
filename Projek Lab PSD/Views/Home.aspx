@@ -35,7 +35,21 @@
             </div>
         </div>
 
+        <div class="grid-customer-view" runat="server" id="GridCustomerView">
+            <div class="customer-grid">
+                <h2>Makeups Available</h2>
 
+                <asp:GridView ID="MakeupsGrid" runat="server" AutoGenerateColumns="False">
+                    <Columns>
+                        <asp:BoundField DataField="MakeupName" HeaderText="Makeup Name" SortExpression="MakeupName" />
+                        <asp:BoundField DataField="MakeupPrice" HeaderText="Price" SortExpression="MakeupPrice" />
+                        <asp:BoundField DataField="MakeupWeight" HeaderText="Weight (grams)" SortExpression="MakeupWeight" />
+                        <asp:BoundField DataField="MakeupType.MakeupTypeName" HeaderText="Type" SortExpression="MakeupType.MakeupTypeName" />
+                        <asp:BoundField DataField="MakeupBrand.MakeupBrandName" HeaderText="Brand" SortExpression="MakeupBrand.MakeupBrandName" />
+                    </Columns>
+                </asp:GridView>
+            </div>
+        </div>
     </div>
 
 

@@ -9,7 +9,7 @@ namespace Projek_Lab_PSD.Repositories
 {
     public class MakeupRepository
     {
-        MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        private static MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
 
         public List<Makeup> GetMakeups()
         {
@@ -44,6 +44,11 @@ namespace Projek_Lab_PSD.Repositories
         public Makeup GetMakeupByID(int MakeupID)
         {
             return db.Makeups.Find(MakeupID);
+        }
+
+        public int GetMakeupID(int MakeupID)
+        {
+            return (from x in db.Makeups where x.MakeupID == MakeupID select x.MakeupID).FirstOrDefault();
         }
 
         public void UpdateMakeupByID(int MakeupID, String MakeupName, int MakeupPrice, int MakeupWeight, int MakeupTypeID, int MakeupBrandID)

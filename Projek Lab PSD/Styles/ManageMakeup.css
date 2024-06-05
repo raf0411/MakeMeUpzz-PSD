@@ -16,8 +16,6 @@
     margin-bottom: 1rem;
 }
 
-
-
 .btn-container .btn{
     background: black;
     border: none;
@@ -25,6 +23,7 @@
     color: #FEFEFE;
     border-radius: 2rem;
     cursor: pointer;
+    font-weight: bold;
 }
 
 .btn-container {

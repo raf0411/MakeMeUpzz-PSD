@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>MakeMeUpzzz</title>
+    <title>MakeMeUpzz.com</title>
 
     <%-- CSS --%>
     <link href="/Styles/Navbar.css" rel="stylesheet" />
@@ -12,6 +12,7 @@
     <link href="/Styles/Home.css" rel="stylesheet" />
     <link href="/Styles/ManageMakeup.css" rel="stylesheet" />
     <link href="/Styles/InsertUpdate.css" rel="stylesheet" />
+    <link href="/Styles/OrderMakeup.css" rel="stylesheet" />
 
     <%-- FONTS --%>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,7 +23,7 @@
     <form id="form1" runat="server">
         <div class="navbar">
             <h2 class="logo">
-                <a href="Home.aspx">💄MakeMeUpzzz</a>
+                <a href="Home.aspx">💄MakeMeUpzz</a>
             </h2>
 
             <div class="middle-nav">

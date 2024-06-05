@@ -1,4 +1,6 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -48,15 +50,18 @@ namespace Projek_Lab_PSD.Views
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
             int updateID = Convert.ToInt32(Request.QueryString["id"]);
-
             String makeupBrandName = MakeupBrandNameTB.Text;
             int makeupBrandRating = Convert.ToInt32(MakeupBrandRatingTB.Text);
 
-            makeupBrandRepo.UpdateMakeupBrandByID(updateID, makeupBrandName, makeupBrandRating);
+            ErrorLbl.Text = MakeupBrandController.validateMakeupBrand(makeupBrandName, makeupBrandRating);
 
-            Response.Redirect("~/Views/ManageMakeup.aspx");
+            if(ErrorLbl.Text.Equals(""))
+            {
+                MakeupBrandHandler.UpdateMakeupBrand(updateID, makeupBrandName, makeupBrandRating);
+                Response.Redirect("~/Views/ManageMakeup.aspx");
+            }
+
         }
     }
 }

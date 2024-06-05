@@ -15,6 +15,7 @@ namespace Projek_Lab_PSD.Factories
             user.UserID = UserID;
             user.Username = Username;
             user.UserEmail = UserEmail;
+            user.UserDOB = UserDOB;
             user.UserGender = UserGender;
             user.UserRole = UserRole;
             user.UserPassword = UserPassword;

@@ -11,43 +11,43 @@ namespace Projek_Lab_PSD.Views
 {
 
 
-    public partial class OrderMakeup
+    public partial class Order
     {
 
         /// <summary>
-        /// MakeupsGrid control.
+        /// QuantityLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MakeupsGrid;
+        protected global::System.Web.UI.WebControls.Label QuantityLbl;
 
         /// <summary>
-        /// CartsGrid control.
+        /// QuantityTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CartsGrid;
+        protected global::System.Web.UI.WebControls.TextBox QuantityTB;
 
         /// <summary>
-        /// ClearCartBtn control.
+        /// ErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ClearCartBtn;
+        protected global::System.Web.UI.WebControls.Label ErrorLbl;
 
         /// <summary>
-        /// CheckoutBtn control.
+        /// OrderBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CheckoutBtn;
+        protected global::System.Web.UI.WebControls.Button OrderBtn;
     }
 }

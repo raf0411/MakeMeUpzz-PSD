@@ -55,14 +55,13 @@ namespace Projek_Lab_PSD.Views
             int typeSelectedIndex = MakeupTypeDropdown.SelectedIndex;
             int brandSelectedIndex = MakeupBrandDropdown.SelectedIndex;
 
-            ErrorLbl.Text = MakeupController.validateMakeup(MakeupName, MakeupPrice, MakeupWeight, typeSelectedIndex, brandSelectedIndex);
+            ErrorLbl.Text = MakeupController.validateMakeup(MakeupName, MakeupPrice, MakeupWeight);
 
             if (ErrorLbl.Text.Equals(""))
             {
                 MakeupHandler.InsertMakeup(MakeupName,  MakeupPrice, MakeupWeight, MakeupTypeName, MakeupBrandName);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }
-
         }
     }
 }

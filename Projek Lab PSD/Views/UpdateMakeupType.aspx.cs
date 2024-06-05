@@ -1,4 +1,6 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -52,9 +54,13 @@ namespace Projek_Lab_PSD.Views
 
             String makeupTypeName = MakeupTypeNameTB.Text;
 
-            makeupTypeRepo.UpdateMakeupTypeByID(updateID, makeupTypeName);
+            ErrorLbl.Text = MakeupTypeController.validateMakeupType(makeupTypeName);
 
-            Response.Redirect("~/Views/ManageMakeup.aspx");
+            if (ErrorLbl.Text.Equals(""))
+            {
+                MakeupTypeHandler.UpdateMakeupType(updateID, makeupTypeName);
+                Response.Redirect("~/Views/ManageMakeup.aspx");
+            }         
         }
     }
 }
