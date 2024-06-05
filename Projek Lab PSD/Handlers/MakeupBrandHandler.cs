@@ -28,5 +28,49 @@ namespace Projek_Lab_PSD.Handlers
 
             makeupBrandRepo.DeleteMakeupBrandByID(MakeupBrandID);
         }
+
+        public static void InsertMakeupBrand(String name, int rating)
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+
+            int MakeupBrandID = GenerateMakeupBrandID();
+            String MakeupBrandName = name;
+            int MakeupBrandRating = rating;
+
+            makeupBrandRepo.InsertMakeupBrand(MakeupBrandID, MakeupBrandName, Convert.ToInt32(MakeupBrandRating));
+
+        }
+
+        public static void UpdateMakeupBrand(int updateId, String name, int rating) 
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+            
+            int updateID = updateId;
+            String makeupBrandName = name;
+            int makeupBrandRating = rating;
+
+            makeupBrandRepo.UpdateMakeupBrandByID(updateID, makeupBrandName, makeupBrandRating);
+        }
+
+        public static int GenerateMakeupBrandID()
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+
+            int newID = 0;
+            int lastID = makeupBrandRepo.GetLastMakeupBrandID();
+
+            if (lastID == null)
+            {
+                lastID = 1;
+            }
+            else
+            {
+                lastID++;
+            }
+
+            newID = lastID;
+
+            return newID;
+        }
     }
 }

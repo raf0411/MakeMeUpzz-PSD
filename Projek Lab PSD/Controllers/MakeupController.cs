@@ -55,31 +55,7 @@ namespace Projek_Lab_PSD.Controllers
             return response;
         }
 
-        public static String checkTypes(int typeIndex)
-        {
-            String response = "";
-
-            if(typeIndex == -1)
-            {
-                response = "Makeup type must be selected!";
-            }
-
-            return response;
-        }
-
-        public static String checkBrands(int brandIndex)
-        {
-            String response = "";
-
-            if (brandIndex == -1)
-            {
-                response = "Makeup brand must be selected!";
-            }
-
-            return response;
-        }
-
-        public static String validateMakeup(String name, int price, int weight, int typeIndex, int brandIndex)
+        public static String validateMakeup(String name, int price, int weight)
         {
             String response = checkName(name);
 
@@ -93,17 +69,7 @@ namespace Projek_Lab_PSD.Controllers
 
                     if (response.Equals(""))
                     {
-                        response = checkTypes(typeIndex);
-
-                        if (response.Equals(""))
-                        {
-                            response = checkBrands(brandIndex);
-
-                            if (response.Equals(""))
-                            {
-                                response = "";
-                            }
-                        }
+                        response = "";
                     }
                 }
             }

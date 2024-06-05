@@ -11,8 +11,10 @@ using System.Web.UI.WebControls;
 
 namespace Projek_Lab_PSD.Views
 {
-    public partial class InsertMakeupBrand : System.Web.UI.Page
+    public partial class Order : System.Web.UI.Page
     {
+        User user;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
@@ -21,26 +23,29 @@ namespace Projek_Lab_PSD.Views
             }
             else
             {
-                User user = (User)Session["user"]; ;
+                user = (User)Session["user"];
 
-                if (!user.UserRole.Equals("Admin"))
+                if (!user.UserRole.Equals("Customer"))
                 {
                     Response.Redirect("Home.aspx");
                 }
             }
+
+            CartRepository cartRepo = new CartRepository();
         }
 
-        protected void InsertBtn_Click(object sender, EventArgs e)
+        protected void OrderBtn_Click(object sender, EventArgs e)
         {
-            String MakeupBrandName = MakeupBrandNameTB.Text;
-            int MakeupBrandRating = Convert.ToInt32(MakeupBrandRatingTB.Text);
+            int userID = user.UserID;
+            int makeupID = Convert.ToInt32(Request.QueryString["id"]);
+            int quantity = Convert.ToInt32(QuantityTB.Text);
 
-            ErrorLbl.Text = MakeupBrandController.validateMakeupBrand(MakeupBrandName, MakeupBrandRating);
+            ErrorLbl.Text = OrderController.validateOrder(quantity);
 
             if (ErrorLbl.Text.Equals(""))
             {
-                MakeupBrandHandler.InsertMakeupBrand(MakeupBrandName, MakeupBrandRating);
-                Response.Redirect("~/Views/ManageMakeup.aspx");
+                OrderHandler.InsertCart(userID, makeupID, quantity);
+                Response.Redirect("~/Views/OrderMakeup.aspx");
             }
         }
     }

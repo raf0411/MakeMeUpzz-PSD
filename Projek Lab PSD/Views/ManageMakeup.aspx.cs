@@ -32,20 +32,7 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            MakeupRepository makeupRepo = new MakeupRepository();
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
-
-            makeups = makeupRepo.GetMakeups();
-            makeupTypes = makeupTypeRepo.GetMakeupTypes();
-            makeupBrands = makeupBrandRepo.GetMakeupBrands();
-
-            MakeupGrid.DataSource = makeups;
-            MakeupGrid.DataBind();
-            MakeupTypeGrid.DataSource = makeupTypes;
-            MakeupTypeGrid.DataBind();
-            MakeupBrandGrid.DataSource = makeupBrands;
-            MakeupBrandGrid.DataBind();
+            RefreshGridView();
         }
 
         protected void InsertPageBtn_Click(object sender, EventArgs e)
@@ -62,19 +49,16 @@ namespace Projek_Lab_PSD.Views
         protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("InsertMakeupBrand.aspx");
-
         }
 
         protected void MakeupGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            MakeupRepository makeupRepo = new MakeupRepository();
             GridViewRow row = MakeupGrid.Rows[e.RowIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            makeupRepo.DeleteMakeupByID(id);
 
-            makeups = makeupRepo.GetMakeups();
-            MakeupGrid.DataSource = makeups;
-            MakeupGrid.DataBind();
+            MakeupHandler.DeleteMakeup(id);
+
+            RefreshGridView();
         }
 
         protected void MakeupGrid_RowEditing(object sender, GridViewEditEventArgs e)
@@ -87,7 +71,6 @@ namespace Projek_Lab_PSD.Views
 
         protected void MakeupTypeGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
             MakeupTypeHandler makeupTypeHandler = new MakeupTypeHandler();
 
             GridViewRow row = MakeupTypeGrid.Rows[e.RowIndex];
@@ -95,11 +78,7 @@ namespace Projek_Lab_PSD.Views
 
             makeupTypeHandler.DeleteMakeupType(id);
 
-            //makeupTypeRepo.DeleteMakeupTypeByID(id);
-
-            makeupTypes = makeupTypeRepo.GetMakeupTypes();
-            MakeupTypeGrid.DataSource = makeupTypes;
-            MakeupTypeGrid.DataBind();
+            RefreshGridView();
         }
 
         protected void MakeupTypeGrid_RowEditing(object sender, GridViewEditEventArgs e)
@@ -113,16 +92,12 @@ namespace Projek_Lab_PSD.Views
         protected void MakeupBrandGrid_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             MakeupBrandHandler makeupBrandHandler = new MakeupBrandHandler();
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
             GridViewRow row = MakeupBrandGrid.Rows[e.RowIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
 
             makeupBrandHandler.DeleteMakeupBrand(id);
-            //makeupBrandRepo.DeleteMakeupBrandByID(id);
 
-            makeupBrands= makeupBrandRepo.GetMakeupBrands();
-            MakeupBrandGrid.DataSource = makeupBrands;
-            MakeupBrandGrid.DataBind();
+            RefreshGridView();
         }
 
         protected void MakeupBrandGrid_RowEditing(object sender, GridViewEditEventArgs e)
@@ -131,6 +106,24 @@ namespace Projek_Lab_PSD.Views
             int id = Convert.ToInt32(row.Cells[0].Text);
 
             Response.Redirect("~/Views/UpdateMakeupBrand.aspx?id=" + id);
+        }
+
+        public void RefreshGridView()
+        {
+            MakeupRepository makeupRepo = new MakeupRepository();
+            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+
+            makeups = makeupRepo.GetMakeups();
+            makeupTypes = makeupTypeRepo.GetMakeupTypes();
+            makeupBrands = makeupBrandRepo.GetMakeupBrands();
+
+            MakeupGrid.DataSource = makeups;
+            MakeupGrid.DataBind();
+            MakeupTypeGrid.DataSource = makeupTypes;
+            MakeupTypeGrid.DataBind();
+            MakeupBrandGrid.DataSource = makeupBrands;
+            MakeupBrandGrid.DataBind();
         }
     }
 }

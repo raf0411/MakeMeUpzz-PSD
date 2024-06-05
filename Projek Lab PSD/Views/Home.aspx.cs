@@ -12,13 +12,17 @@ namespace Projek_Lab_PSD.Views
     public partial class Home : System.Web.UI.Page
     {
         public List<User> users = null;
+        public List<Makeup> makeups = null;
         private MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
+        User user;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             ListGridContainer.Visible = false;
+            GridCustomerView.Visible = false;
 
             UserRepository userRepo = new UserRepository();
+            MakeupRepository makeupRepo = new MakeupRepository();
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
             {
@@ -26,8 +30,6 @@ namespace Projek_Lab_PSD.Views
             }
             else
             {
-                User user;
-
                 if (Session["user"] == null)
                 {
                     int id = Convert.ToInt32(Request.Cookies["user_cookie"].Value);
@@ -50,6 +52,7 @@ namespace Projek_Lab_PSD.Views
                 if (user.UserRole.Equals("Admin"))
                 {
                     ListGridContainer.Visible = true;
+                    GridCustomerView.Visible = false;
 
                     var q = (from x in db.Users select x);
 
@@ -61,11 +64,16 @@ namespace Projek_Lab_PSD.Views
                 else if (user.UserRole.Equals("Customer"))
                 {
                     ListGridContainer.Visible = false;
+                    GridCustomerView.Visible = true;
                 }
             }
 
             users = userRepo.GetCustomers();
+            makeups = makeupRepo.GetMakeups();
+
+            MakeupsGrid.DataSource = makeups;
             UsersGrid.DataSource = users;
+            MakeupsGrid.DataBind();
             UsersGrid.DataBind();
         }
     }

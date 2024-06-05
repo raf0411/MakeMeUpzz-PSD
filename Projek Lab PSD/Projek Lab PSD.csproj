@@ -95,6 +95,7 @@
     <Content Include="Styles\Main.css" />
     <Content Include="Styles\ManageMakeup.css" />
     <Content Include="Styles\Navbar.css" />
+    <Content Include="Styles\OrderMakeup.css" />
     <Content Include="Styles\Register.css" />
     <Content Include="Views\HandleTransaction.aspx" />
     <Content Include="Views\Home.aspx" />
@@ -103,6 +104,7 @@
     <Content Include="Views\InsertMakeupType.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\ManageMakeup.aspx" />
+    <Content Include="Views\Order.aspx" />
     <Content Include="Views\OrderMakeup.aspx" />
     <Content Include="Views\Profile.aspx" />
     <Content Include="Views\Register.aspx" />
@@ -116,7 +118,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\MakeupBrandController.cs" />
     <Compile Include="Controllers\MakeupController.cs" />
+    <Compile Include="Controllers\MakeupTypeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Factories\CartFactory.cs" />
     <Compile Include="Factories\MakeupBrandFactory.cs" />
     <Compile Include="Factories\MakeupFactory.cs" />
@@ -127,6 +132,8 @@
     <Compile Include="Handlers\MakeupBrandHandler.cs" />
     <Compile Include="Handlers\MakeupHandler.cs" />
     <Compile Include="Handlers\MakeupTypeHandler.cs" />
+    <Compile Include="Handlers\OrderHandler.cs" />
+    <Compile Include="Handlers\TransactionHandler.cs" />
     <Compile Include="Handlers\UserHandler.cs" />
     <Compile Include="Models\Cart.cs">
       <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
@@ -165,10 +172,13 @@
       <DependentUpon>MakeMeUpzzzModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\CartRepository.cs" />
     <Compile Include="Repositories\DatabaseSingleton.cs" />
     <Compile Include="Repositories\MakeupBrandRepository.cs" />
     <Compile Include="Repositories\MakeupRepository.cs" />
     <Compile Include="Repositories\MakeupTypeRepository.cs" />
+    <Compile Include="Repositories\TransactionDetailRepository.cs" />
+    <Compile Include="Repositories\TransactionHeaderRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Views\HandleTransaction.aspx.cs">
       <DependentUpon>HandleTransaction.aspx</DependentUpon>
@@ -225,6 +235,13 @@
     </Compile>
     <Compile Include="Views\MasterPage.Master.designer.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Order.aspx.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Order.aspx.designer.cs">
+      <DependentUpon>Order.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\OrderMakeup.aspx.cs">
       <DependentUpon>OrderMakeup.aspx</DependentUpon>

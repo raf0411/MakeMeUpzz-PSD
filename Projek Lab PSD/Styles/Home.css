@@ -15,11 +15,12 @@
     text-align: center;
 }
 
-.user-list-container{
+.user-list-container, .customer-grid {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: center;
+    text-align: center;
 }
 
 .username-role-container{
@@ -29,9 +30,22 @@
     gap: 1rem;
 }
 
-.list-grid-container {
+.list-grid-container, grid-customer-view {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+
+.grid-customer-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.customer-grid{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
