@@ -9,6 +9,12 @@ namespace Projek_Lab_PSD.Handlers
 {
     public class TransactionHandler
     {
+        public static List<TransactionHeader> GetTransactions()
+        {
+            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
+            return thRepo.GetTransactionHeaders();
+        }
+
         public static void InsertTransaction(int userId)
         {
             TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
@@ -19,6 +25,12 @@ namespace Projek_Lab_PSD.Handlers
             String Status = "Unhandled";
 
             thRepo.InsertTransaction(TransactionID, UserID, TransactionDate, Status);
+        }
+
+        public static void UpdateStatusByID(int TransactionID)
+        {
+            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
+            thRepo.UpdateTransactionStatusByID(TransactionID);
         }
 
         public static void InsertTransactionDetail(int userId)

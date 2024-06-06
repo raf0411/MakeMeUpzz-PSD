@@ -9,16 +9,16 @@
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.MakeupBrand" Width="1.5" PointX="0.5" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.Makeup" Width="1.5" PointX="4.375" PointY="6.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.MakeupType" Width="1.5" PointX="0.5" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.TransactionDetail" Width="1.5" PointX="4.375" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.TransactionHeader" Width="1.5" PointX="4.375" PointY="0.5" IsExpanded="true" />
         <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.User" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Carts_Makeups" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Carts_Users" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Makeups_MakeupBrands" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_Makeups_MakeupTypes" ManuallyRouted="false" />
-        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups" ManuallyRouted="false" />
-        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeader" ManuallyRouted="false" />
         <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionHeader_Users" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MakeMeUpzzDatabaseModel.TransactionDetail" Width="1.75" PointX="4.25" PointY="3.125" />
+        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups" />
+        <AssociationConnector Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeader" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

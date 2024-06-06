@@ -42,7 +42,7 @@ namespace Projek_Lab_PSD.Views
 
         protected void btnOrderQueue_Click(object sender, EventArgs e)
         {
-            // ???
+            Response.Redirect("HandleTransaction.aspx");
         }
 
         protected void btnProfile_Click(object sender, EventArgs e)

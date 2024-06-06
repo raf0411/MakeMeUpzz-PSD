@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MakeMeUpzzDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Carts">
           <Key>
             <PropertyRef Name="CartID" />
@@ -43,6 +43,7 @@
         <EntityType Name="TransactionDetails">
           <Key>
             <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="MakeupID" />
           </Key>
           <Property Name="TransactionID" Type="int" Nullable="false" />
           <Property Name="MakeupID" Type="int" Nullable="false" />
@@ -131,7 +132,7 @@
         </Association>
         <Association Name="FK_TransactionDetails_TransactionHeader">
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
-          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="0..1" />
+          <End Role="TransactionDetails" Type="Self.TransactionDetails" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TransactionHeader">
               <PropertyRef Name="TransactionID" />
@@ -190,8 +191,7 @@
             <End Role="TransactionHeader" EntitySet="TransactionHeader" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MakeMeUpzzDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -228,7 +228,7 @@
           <NavigationProperty Name="Carts" Relationship="Self.FK_Carts_Makeups" FromRole="Makeups" ToRole="Carts" />
           <NavigationProperty Name="MakeupBrand" Relationship="Self.FK_Makeups_MakeupBrands" FromRole="Makeups" ToRole="MakeupBrands" />
           <NavigationProperty Name="MakeupType" Relationship="Self.FK_Makeups_MakeupTypes" FromRole="Makeups" ToRole="MakeupTypes" />
-          <NavigationProperty Name="TransactionDetails" Relationship="Self.FK_TransactionDetails_Makeups" FromRole="Makeups" ToRole="TransactionDetails" />
+          <NavigationProperty Name="TransactionDetails" Relationship="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups" FromRole="Makeup" ToRole="TransactionDetail" />
         </EntityType>
         <EntityType Name="MakeupType">
           <Key>
@@ -238,16 +238,6 @@
           <Property Name="MakeupTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Makeups" Relationship="Self.FK_Makeups_MakeupTypes" FromRole="MakeupTypes" ToRole="Makeups" />
         </EntityType>
-        <EntityType Name="TransactionDetail">
-          <Key>
-            <PropertyRef Name="TransactionID" />
-          </Key>
-          <Property Name="TransactionID" Type="Int32" Nullable="false" />
-          <Property Name="MakeupID" Type="Int32" Nullable="false" />
-          <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Makeup" Relationship="Self.FK_TransactionDetails_Makeups" FromRole="TransactionDetails" ToRole="Makeups" />
-          <NavigationProperty Name="TransactionHeader" Relationship="Self.FK_TransactionDetails_TransactionHeader" FromRole="TransactionDetails" ToRole="TransactionHeader" />
-        </EntityType>
         <EntityType Name="TransactionHeader">
           <Key>
             <PropertyRef Name="TransactionID" />
@@ -256,8 +246,8 @@
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="TransactionDate" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="TransactionDetail" Relationship="Self.FK_TransactionDetails_TransactionHeader" FromRole="TransactionHeader" ToRole="TransactionDetails" />
           <NavigationProperty Name="User" Relationship="Self.FK_TransactionHeader_Users" FromRole="TransactionHeader" ToRole="Users" />
+          <NavigationProperty Name="TransactionDetails" Relationship="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeader" FromRole="TransactionHeader" ToRole="TransactionDetail" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -321,30 +311,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_TransactionDetails_Makeups">
-          <End Role="Makeups" Type="Self.Makeup" Multiplicity="1" />
-          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Makeups">
-              <PropertyRef Name="MakeupID" />
-            </Principal>
-            <Dependent Role="TransactionDetails">
-              <PropertyRef Name="MakeupID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_TransactionDetails_TransactionHeader">
-          <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="1" />
-          <End Role="TransactionDetails" Type="Self.TransactionDetail" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="TransactionHeader">
-              <PropertyRef Name="TransactionID" />
-            </Principal>
-            <Dependent Role="TransactionDetails">
-              <PropertyRef Name="TransactionID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_TransactionHeader_Users">
           <End Role="Users" Type="Self.User" Multiplicity="1" />
           <End Role="TransactionHeader" Type="Self.TransactionHeader" Multiplicity="*" />
@@ -362,7 +328,6 @@
           <EntitySet Name="MakeupBrands" EntityType="Self.MakeupBrand" />
           <EntitySet Name="Makeups" EntityType="Self.Makeup" />
           <EntitySet Name="MakeupTypes" EntityType="Self.MakeupType" />
-          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetail" />
           <EntitySet Name="TransactionHeaders" EntityType="Self.TransactionHeader" />
           <EntitySet Name="Users" EntityType="Self.User" />
           <AssociationSet Name="FK_Carts_Makeups" Association="Self.FK_Carts_Makeups">
@@ -381,19 +346,55 @@
             <End Role="MakeupTypes" EntitySet="MakeupTypes" />
             <End Role="Makeups" EntitySet="Makeups" />
           </AssociationSet>
-          <AssociationSet Name="FK_TransactionDetails_Makeups" Association="Self.FK_TransactionDetails_Makeups">
-            <End Role="Makeups" EntitySet="Makeups" />
-            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
-          </AssociationSet>
-          <AssociationSet Name="FK_TransactionDetails_TransactionHeader" Association="Self.FK_TransactionDetails_TransactionHeader">
-            <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
-            <End Role="TransactionDetails" EntitySet="TransactionDetails" />
-          </AssociationSet>
           <AssociationSet Name="FK_TransactionHeader_Users" Association="Self.FK_TransactionHeader_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
           </AssociationSet>
+          <EntitySet Name="TransactionDetails" EntityType="MakeMeUpzzDatabaseModel.TransactionDetail" />
+          <AssociationSet Name="FK_TransactionDetails_Makeups" Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups">
+            <End Role="Makeup" EntitySet="Makeups" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_TransactionHeader" Association="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeader">
+            <End Role="TransactionHeader" EntitySet="TransactionHeaders" />
+            <End Role="TransactionDetail" EntitySet="TransactionDetails" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="TransactionDetail">
+          <Key>
+            <PropertyRef Name="TransactionID" />
+            <PropertyRef Name="MakeupID" />
+          </Key>
+          <Property Name="TransactionID" Type="Int32" Nullable="false" />
+          <Property Name="MakeupID" Type="Int32" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Makeup" Relationship="MakeMeUpzzDatabaseModel.FK_TransactionDetails_Makeups" FromRole="TransactionDetail" ToRole="Makeup" />
+          <NavigationProperty Name="TransactionHeader" Relationship="MakeMeUpzzDatabaseModel.FK_TransactionDetails_TransactionHeader" FromRole="TransactionDetail" ToRole="TransactionHeader" />
+        </EntityType>
+        <Association Name="FK_TransactionDetails_Makeups">
+          <End Type="MakeMeUpzzDatabaseModel.Makeup" Role="Makeup" Multiplicity="1" />
+          <End Type="MakeMeUpzzDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Makeup">
+              <PropertyRef Name="MakeupID" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="MakeupID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_TransactionHeader">
+          <End Type="MakeMeUpzzDatabaseModel.TransactionHeader" Role="TransactionHeader" Multiplicity="1" />
+          <End Type="MakeMeUpzzDatabaseModel.TransactionDetail" Role="TransactionDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionHeader">
+              <PropertyRef Name="TransactionID" />
+            </Principal>
+            <Dependent Role="TransactionDetail">
+              <PropertyRef Name="TransactionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -439,15 +440,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="TransactionDetails">
-            <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.TransactionDetail">
-              <MappingFragment StoreEntitySet="TransactionDetails">
-                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
-                <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TransactionHeaders">
             <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.TransactionHeader">
               <MappingFragment StoreEntitySet="TransactionHeader">
@@ -468,6 +460,15 @@
                 <ScalarProperty Name="UserGender" ColumnName="UserGender" />
                 <ScalarProperty Name="UserRole" ColumnName="UserRole" />
                 <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="MakeMeUpzzDatabaseModel.TransactionDetail">
+              <MappingFragment StoreEntitySet="TransactionDetails">
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MakeupID" ColumnName="MakeupID" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

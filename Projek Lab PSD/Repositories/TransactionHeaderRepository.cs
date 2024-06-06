@@ -16,6 +16,13 @@ namespace Projek_Lab_PSD.Repositories
             return (from x in db.TransactionHeaders select x).ToList();
         }
 
+        public List<TransactionHeader> GetUnhandledTransactionHeaders()
+        {
+            return (from x in db.TransactionHeaders
+                    where x.Status.Equals("Unhandled")
+                    select x).ToList();
+        }
+
         public List<TransactionHeader> GetTransactionHeadersByUserID(int UserID)
         {
             return (from x in db.TransactionHeaders
@@ -40,6 +47,19 @@ namespace Projek_Lab_PSD.Repositories
         {
             TransactionHeader transactionHeader = TransactionHeaderFactory.Create(TransactionID, UserID, TransactionDate, Status);
             db.TransactionHeaders.Add(transactionHeader);
+            db.SaveChanges();
+        }
+
+        public TransactionHeader GetTransactionHeaderByID(int TransactionID)
+        {
+            return db.TransactionHeaders.Find(TransactionID);
+        }
+
+        public void UpdateTransactionStatusByID(int TransactionID)
+        {
+            TransactionHeader updateTransactionHeader = GetTransactionHeaderByID(TransactionID);
+            updateTransactionHeader.Status = "Handled";
+
             db.SaveChanges();
         }
     }
