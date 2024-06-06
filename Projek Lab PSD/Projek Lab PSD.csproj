@@ -96,7 +96,10 @@
     <Content Include="Styles\ManageMakeup.css" />
     <Content Include="Styles\Navbar.css" />
     <Content Include="Styles\OrderMakeup.css" />
+    <Content Include="Styles\Profile.css" />
     <Content Include="Styles\Register.css" />
+    <Content Include="Styles\UpdateProfile.css" />
+    <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\HandleTransaction.aspx" />
     <Content Include="Views\Home.aspx" />
     <Content Include="Views\InsertMakeup.aspx" />
@@ -114,6 +117,7 @@
     <Content Include="Views\UpdateMakeup.aspx" />
     <Content Include="Views\UpdateMakeupBrand.aspx" />
     <Content Include="Views\UpdateMakeupType.aspx" />
+    <Content Include="Views\UpdateProfile.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +184,13 @@
     <Compile Include="Repositories\TransactionDetailRepository.cs" />
     <Compile Include="Repositories\TransactionHeaderRepository.cs" />
     <Compile Include="Repositories\UserRepository.cs" />
+    <Compile Include="Views\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\HandleTransaction.aspx.cs">
       <DependentUpon>HandleTransaction.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -305,6 +316,13 @@
     </Compile>
     <Compile Include="Views\UpdateMakeupType.aspx.designer.cs">
       <DependentUpon>UpdateMakeupType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateProfile.aspx.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateProfile.aspx.designer.cs">
+      <DependentUpon>UpdateProfile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

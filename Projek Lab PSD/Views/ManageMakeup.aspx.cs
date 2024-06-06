@@ -43,7 +43,6 @@ namespace Projek_Lab_PSD.Views
         protected void InsertMakeupTypeBtn_Click(object sender, EventArgs e)
         {
             Response.Redirect("InsertMakeupType.aspx");
-
         }
 
         protected void InsertMakeupBrandBtn_Click(object sender, EventArgs e)

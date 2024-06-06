@@ -80,9 +80,11 @@ namespace Projek_Lab_PSD.Views
         protected void CheckoutBtn_Click(object sender, EventArgs e)
         {
             int UserID = user.UserID;
-
             TransactionHandler.InsertTransaction(UserID);
             TransactionHandler.InsertTransactionDetail(UserID);
+
+            CheckoutLbl.ForeColor = System.Drawing.Color.Green;
+            CheckoutLbl.Text = "Checkout Successful!";
         }
     }
 }

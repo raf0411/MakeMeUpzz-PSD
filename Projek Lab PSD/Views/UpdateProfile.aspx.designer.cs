@@ -11,7 +11,7 @@ namespace Projek_Lab_PSD.Views
 {
 
 
-    public partial class Profile
+    public partial class UpdateProfile
     {
 
         /// <summary>
@@ -24,13 +24,13 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.WebControls.Label UsernameLbl;
 
         /// <summary>
-        /// Username control.
+        /// UsernameTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Username;
+        protected global::System.Web.UI.WebControls.TextBox UsernameTB;
 
         /// <summary>
         /// EmailLbl control.
@@ -42,13 +42,13 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.WebControls.Label EmailLbl;
 
         /// <summary>
-        /// Email control.
+        /// EmailTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Email;
+        protected global::System.Web.UI.WebControls.TextBox EmailTB;
 
         /// <summary>
         /// GenderLbl control.
@@ -60,48 +60,48 @@ namespace Projek_Lab_PSD.Views
         protected global::System.Web.UI.WebControls.Label GenderLbl;
 
         /// <summary>
-        /// Gender control.
+        /// GenderList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Gender;
+        protected global::System.Web.UI.WebControls.RadioButtonList GenderList;
 
         /// <summary>
-        /// DOBLbl control.
+        /// DateOfBirthLBL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DOBLbl;
+        protected global::System.Web.UI.WebControls.Label DateOfBirthLBL;
 
         /// <summary>
-        /// DOB control.
+        /// DateOfBirthTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label DOB;
+        protected global::System.Web.UI.WebControls.TextBox DateOfBirthTB;
 
         /// <summary>
-        /// UpdateProfileBtn control.
+        /// ErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateProfileBtn;
+        protected global::System.Web.UI.WebControls.Label ErrorLbl;
 
         /// <summary>
-        /// ChangePasswordBtn control.
+        /// UpdateBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ChangePasswordBtn;
+        protected global::System.Web.UI.WebControls.Button UpdateBtn;
     }
 }

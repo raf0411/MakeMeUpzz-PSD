@@ -16,6 +16,13 @@ namespace Projek_Lab_PSD.Repositories
             return (from x in db.TransactionHeaders select x).ToList();
         }
 
+        public List<TransactionHeader> GetTransactionHeadersByUserID(int UserID)
+        {
+            return (from x in db.TransactionHeaders
+                    where x.UserID == UserID
+                    select x).ToList();
+        }
+
         public int GetLastTransactionID()
         {
             return (from x in db.TransactionHeaders select x.TransactionID).ToList().LastOrDefault();

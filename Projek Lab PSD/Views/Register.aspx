@@ -45,7 +45,7 @@
 
         <div class="text-box-lbl">
             <asp:Label ID="DateOfBirthLbl" runat="server" Text="Date of Birth" CssClass="lbl"></asp:Label>
-            <asp:TextBox TextMode="DateTime" ID="DateOfBirthTB" runat="server" CssClass="input" placeholder="e.g 01/01/2001"></asp:TextBox>
+            <asp:TextBox TextMode="Date" ID="DateOfBirthTB" runat="server" CssClass="input" placeholder="e.g 01/01/2001"></asp:TextBox>
         </div>
 
         <div>

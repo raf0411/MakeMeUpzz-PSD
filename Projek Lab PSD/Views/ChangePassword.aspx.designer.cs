@@ -11,52 +11,61 @@ namespace Projek_Lab_PSD.Views
 {
 
 
-    public partial class OrderMakeup
+    public partial class ChangePassword
     {
 
         /// <summary>
-        /// MakeupsGrid control.
+        /// OldPasswordLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView MakeupsGrid;
+        protected global::System.Web.UI.WebControls.Label OldPasswordLbl;
 
         /// <summary>
-        /// CartsGrid control.
+        /// OldPasswordTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView CartsGrid;
+        protected global::System.Web.UI.WebControls.TextBox OldPasswordTB;
 
         /// <summary>
-        /// ClearCartBtn control.
+        /// NewPasswordLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ClearCartBtn;
+        protected global::System.Web.UI.WebControls.Label NewPasswordLbl;
 
         /// <summary>
-        /// CheckoutBtn control.
+        /// NewPasswordTB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CheckoutBtn;
+        protected global::System.Web.UI.WebControls.TextBox NewPasswordTB;
 
         /// <summary>
-        /// CheckoutLbl control.
+        /// ErrorLbl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CheckoutLbl;
+        protected global::System.Web.UI.WebControls.Label ErrorLbl;
+
+        /// <summary>
+        /// ChangePasswordBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ChangePasswordBtn;
     }
 }

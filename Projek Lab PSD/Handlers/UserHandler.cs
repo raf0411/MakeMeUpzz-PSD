@@ -32,6 +32,18 @@ namespace Projek_Lab_PSD.Handlers
             userRepo.InsertUser(newID, newUsername, newEmail, newDOB, newGender, newRole, newPassword);
         }
 
+        public static void UpdateUser(int UserID, String Username, String Email, String Gender, DateTime UserDOB)
+        {
+            UserRepository userRepo = new UserRepository();
+            userRepo.UpdateUserByID(UserID, Username, Email, Gender, UserDOB);
+        }
+
+        public static void UpdatePassword(int UserID, String Password)
+        {
+            UserRepository userRepo = new UserRepository();
+            userRepo.UpdatePasswordByID(UserID, Password);
+        }
+
         public static int GenerateUserID()
         {
             UserRepository userRepo = new UserRepository();

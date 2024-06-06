@@ -158,6 +158,66 @@ namespace Projek_Lab_PSD.Controllers
             return response;
         }
 
+        public static String validateUpdate(String username, String email, int gender, String dob)
+        {
+            String response = checkUsername(username);
+
+            if (response.Equals(""))
+            {
+                response = checkEmail(email);
+
+                if (response.Equals(""))
+                {
+                    response = checkDOB(dob);
+
+                    if (response.Equals(""))
+                    {
+                        response = checkGender(gender);
+
+                        if (response.Equals(""))
+                        {
+                            response = "";
+                        }
+                    }
+                }
+            }
+
+            return response;
+        }
+
+        public static String checkChangePassword(String oldPassword, String currentPassword)
+        {
+            String response = "";
+
+            if (oldPassword.Equals(""))
+            {
+                response = "Old Password is empty!";
+            }
+            else if (currentPassword != oldPassword)
+            {
+                response = "Old Password is wrong!";
+            }
+
+            return response;
+        }
+
+        public static String validateChangePassword(String oldPassword, String newPassword, String currentPassword)
+        {
+            String response = checkChangePassword(oldPassword, currentPassword);
+
+            if (response.Equals(""))
+            {
+                response = checkPassword(newPassword);
+
+                if (response.Equals(""))
+                {
+                    response = "";
+                }
+            }
+
+            return response;
+        }
+
         private static bool IsAlphanumeric(String password)
         {
             // Regular expression to check if the password is alphanumeric
