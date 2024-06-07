@@ -35,10 +35,33 @@ namespace Projek_Lab_PSD.Repositories
             return (from x in db.Users select x.UserID).ToList().LastOrDefault();
         }
 
+        public User GetUserByID(int UserID)
+        {
+            return db.Users.Find(UserID);
+        }
+
         public void InsertUser(int UserID, String Username, String UserEmail, DateTime UserDOB, String UserGender, String UserRole, String UserPassword)
         {
             User user = UserFactory.Create(UserID, Username, UserEmail, UserDOB, UserGender, UserRole, UserPassword);
             db.Users.Add(user);
+            db.SaveChanges();
+        }
+
+        public void UpdateUserByID(int UserID, String Username, String UserEmail, String UserGender, DateTime UserDOB)
+        {
+            User updateUser = GetUserByID(UserID);
+            updateUser.Username = Username;
+            updateUser.UserEmail = UserEmail;
+            updateUser.UserGender = UserGender;
+            updateUser.UserDOB = UserDOB;
+
+            db.SaveChanges();
+        }
+
+        public void UpdatePasswordByID(int UserID, String Password)
+        {
+            User updateUser = GetUserByID(UserID);
+            updateUser.UserPassword = Password;
             db.SaveChanges();
         }
     }

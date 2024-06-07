@@ -16,6 +16,13 @@ namespace Projek_Lab_PSD.Repositories
             return (from x in db.TransactionDetails select x).ToList();
         }
 
+        public List<TransactionDetail> GetTransactionDetailsByID(int TransactionID)
+        {
+            return (from x in db.TransactionDetails
+                    where x.TransactionID == TransactionID
+                    select x).ToList();
+        }
+
         public void InsertTransactionDetail(int TransactionID, int MakeupID, int quantity)
         {
             TransactionDetail transactionDetail = TransactionDetailFactory.Create(TransactionID, MakeupID, quantity);

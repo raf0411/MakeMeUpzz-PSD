@@ -35,5 +35,7 @@
         <asp:Button ID="ClearCartBtn" runat="server" Text="Clear Cart" OnClick="ClearCartBtn_Click" />
 
         <asp:Button ID="CheckoutBtn" runat="server" Text="Checkout" OnClick="CheckoutBtn_Click" />
+
+        <asp:Label ID="CheckoutLbl" runat="server" Text=""></asp:Label>
     </div>
 </asp:Content>
