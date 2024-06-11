@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -27,11 +30,7 @@ namespace Projek_Lab_PSD.Controllers
         {
             String response = "";
 
-            if (price == 0)
-            {
-                response = "Price must be greater than 0";
-            }
-            else if (price < 0)
+            if (price <= 0)
             {
                 response = "Price must be greater than or equal than 1!";
             }
@@ -75,6 +74,31 @@ namespace Projek_Lab_PSD.Controllers
             }
 
             return response;
+        }
+
+        public static List<Makeup> GetMakeups()
+        {
+            return MakeupHandler.GetMakeups();
+        }
+
+        public static void DeleteMakeup(int MakeupID)
+        {
+            MakeupHandler.DeleteMakeup(MakeupID);
+        }
+
+        public static void InsertMakeup(String name, int price, int weight, String type, String brand)
+        {
+            MakeupHandler.InsertMakeup(name, price, weight, type, brand);
+        }
+
+        public static Makeup GetMakeupByID(int MakeupID)
+        {
+            return MakeupHandler.GetMakeupByID(MakeupID);
+        }
+
+        public static void UpdateMakeup(int updateId, String name, int price, int weight, String type, String brand)
+        {
+            MakeupHandler.UpdateMakeup(updateId, name, price, weight, type, brand);
         }
     }
 }

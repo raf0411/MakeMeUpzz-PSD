@@ -2,18 +2,18 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
 
-    <div class="container">
+    <div class="change-password-container">
 
-        <h2>Change Password</h2>
+        <h1>Change Password</h1>
 
         <div class="form">
             <asp:Label ID="OldPasswordLbl" runat="server" Text="Old Password"></asp:Label>
-            <asp:TextBox ID="OldPasswordTB" runat="server" placeholder="Old Password"></asp:TextBox>
+            <asp:TextBox CssClass="input" ID="OldPasswordTB" runat="server" placeholder="Old Password"></asp:TextBox>
         </div>
 
         <div class="form">
             <asp:Label ID="NewPasswordLbl" runat="server" Text="New Password"></asp:Label>
-            <asp:TextBox ID="NewPasswordTB" runat="server" placeholder="New Password"></asp:TextBox>
+            <asp:TextBox CssClass="input" ID="NewPasswordTB" runat="server" placeholder="New Password"></asp:TextBox>
         </div>
 
         <asp:Label CssClass="error-lbl" ID="ErrorLbl" runat="server" Text=""></asp:Label>

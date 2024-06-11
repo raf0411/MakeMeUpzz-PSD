@@ -18,6 +18,10 @@
             <div>
                 <asp:Button CssClass="insert-btn" ID="InsertBtn" runat="server" Text="Insert" OnClick="InsertBtn_Click" />
             </div>
+
+            <div>
+                <asp:Button CssClass="update-btn" ID="BackBtn" runat="server" Text="Back to Manage Makeup" OnClick="BackBtn_Click" />
+            </div>
         </div>
     </div>
 </asp:Content>

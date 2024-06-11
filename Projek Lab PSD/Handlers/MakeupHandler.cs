@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Repositories;
+﻿using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
 using Projek_Lab_PSD.Views;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,12 @@ namespace Projek_Lab_PSD.Handlers
 {
     public class MakeupHandler
     {
+        public static Makeup GetMakeupByID(int MakeupID)
+        {
+            MakeupRepository makeupRepo = new MakeupRepository();
+            return makeupRepo.GetMakeupByID(MakeupID);
+        }
+
         public static void DeleteMakeup(int id)
         {
             MakeupRepository makeupRepo = new MakeupRepository();
@@ -70,6 +77,12 @@ namespace Projek_Lab_PSD.Handlers
             newID = lastID;
 
             return newID;
+        }
+
+        public static List<Makeup> GetMakeups()
+        {
+            MakeupRepository makeupRepo = new MakeupRepository();
+            return makeupRepo.GetMakeups();
         }
     }
 }

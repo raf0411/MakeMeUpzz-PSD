@@ -29,13 +29,11 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
             
             if(IsPostBack == false)
             {
-                List<String> makeupTypeNames = makeupTypeRepo.GetMakeupTypeNames();
-                List<String> makeupBrandNames = makeupBrandRepo.GetMakeupBrandNames();
+                List<String> makeupTypeNames = MakeupTypeController.GetMakeupTypeNames();
+                List<String> makeupBrandNames = MakeupBrandController.GetMakeupBrandNames();
                 
                 MakeupTypeDropdown.DataSource = makeupTypeNames;
                 MakeupBrandDropdown.DataSource = makeupBrandNames;
@@ -59,9 +57,14 @@ namespace Projek_Lab_PSD.Views
 
             if (ErrorLbl.Text.Equals(""))
             {
-                MakeupHandler.InsertMakeup(MakeupName,  MakeupPrice, MakeupWeight, MakeupTypeName, MakeupBrandName);
+                MakeupController.InsertMakeup(MakeupName,  MakeupPrice, MakeupWeight, MakeupTypeName, MakeupBrandName);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }
+        }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
         }
     }
 }

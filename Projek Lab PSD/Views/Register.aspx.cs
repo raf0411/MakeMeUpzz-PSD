@@ -14,11 +14,6 @@ namespace Projek_Lab_PSD.Views
 {
     public partial class Register : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
         protected void RegisterBtn_Click(object sender, EventArgs e)
         {
             String username = UsernameTB.Text;
@@ -29,11 +24,11 @@ namespace Projek_Lab_PSD.Views
             String gender = GenderList.SelectedValue.ToString();
             int genderListIndex = GenderList.SelectedIndex;
 
-            ErrorLbl.Text = AuthController.doRegister(username, password, email, DOB, genderListIndex, confirmPassword);
+            ErrorLbl.Text = AuthController.validateRegister(username, password, email, DOB, genderListIndex, confirmPassword);
 
             if (ErrorLbl.Text.Equals("Success"))
             {
-                UserHandler.doRegister(username, password, email, DOB, gender);
+                AuthController.Register(username, password, email, DOB, gender);
                 Response.Redirect("~/Views/Login.aspx");
             }
         }

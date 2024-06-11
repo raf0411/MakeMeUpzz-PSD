@@ -34,7 +34,7 @@ namespace Projek_Lab_PSD.Views
             if (IsPostBack == false)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
-                MakeupType updateMakeupType = makeupTypeRepo.GetMakeupTypeByID(id);
+                MakeupType updateMakeupType = MakeupTypeController.GetMakeupTypeByID(id);
 
                 if (updateMakeupType != null)
                 {
@@ -49,18 +49,21 @@ namespace Projek_Lab_PSD.Views
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
         {
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
             int updateID = Convert.ToInt32(Request.QueryString["id"]);
-
             String makeupTypeName = MakeupTypeNameTB.Text;
 
             ErrorLbl.Text = MakeupTypeController.validateMakeupType(makeupTypeName);
 
             if (ErrorLbl.Text.Equals(""))
             {
-                MakeupTypeHandler.UpdateMakeupType(updateID, makeupTypeName);
+                MakeupTypeController.UpdateMakeupType(updateID, makeupTypeName);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }         
+        }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
         }
     }
 }

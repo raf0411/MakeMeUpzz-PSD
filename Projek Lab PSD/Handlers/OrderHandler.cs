@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Repositories;
+﻿using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,12 @@ namespace Projek_Lab_PSD.Handlers
             int Quantity = quantity;
 
             cartRepo.InsertCart(cartID, userID, makeupID, Quantity);
+        }
+
+        public static List<Cart> GetCartsByUserID(int UserID)
+        {
+            CartRepository cartRepo = new CartRepository();
+            return cartRepo.GetCartsByUserID(UserID);
         }
 
         public static void DeleteCartByUserID(int userId)

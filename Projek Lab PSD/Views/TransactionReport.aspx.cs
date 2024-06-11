@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Datasets;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Datasets;
 using Projek_Lab_PSD.Handlers;
 using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Reports;
@@ -32,7 +33,7 @@ namespace Projek_Lab_PSD.Views
             MakeMeUpzzReport report = new MakeMeUpzzReport();
             TransactionReportViewer.ReportSource = report;
 
-            Dataset data = GetDataset(TransactionHandler.GetTransactions());
+            Dataset data = GetDataset(TransactionController.GetTransactions());
             report.SetDataSource(data);
         }
 

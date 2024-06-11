@@ -9,7 +9,13 @@ namespace Projek_Lab_PSD.Handlers
 {
     public class MakeupBrandHandler
     {
-        public void DeleteMakeupBrand(int MakeupBrandID)
+        public static List<String> GetMakeupBrandNames()
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+            return makeupBrandRepo.GetMakeupBrandNames();
+        }
+
+        public static void DeleteMakeupBrand(int MakeupBrandID)
         {
             MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
             MakeupRepository makeupRepo = new MakeupRepository();
@@ -38,7 +44,6 @@ namespace Projek_Lab_PSD.Handlers
             int MakeupBrandRating = rating;
 
             makeupBrandRepo.InsertMakeupBrand(MakeupBrandID, MakeupBrandName, Convert.ToInt32(MakeupBrandRating));
-
         }
 
         public static void UpdateMakeupBrand(int updateId, String name, int rating) 
@@ -71,6 +76,24 @@ namespace Projek_Lab_PSD.Handlers
             newID = lastID;
 
             return newID;
+        }
+
+        public static List<MakeupBrand> GetMakeupBrands()
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+            return makeupBrandRepo.GetMakeupBrands();
+        }
+
+        public static String GetMakeupBrandNameByID(int MakeupBrandID)
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+            return makeupBrandRepo.GetMakeupBrandNameByID(MakeupBrandID);
+        }
+
+        public static MakeupBrand GetMakeupBrandByID(int MakeupBrandID)
+        {
+            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
+            return makeupBrandRepo.GetMakeupBrandByID(MakeupBrandID);
         }
     }
 }

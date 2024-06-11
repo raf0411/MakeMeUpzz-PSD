@@ -4,11 +4,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Util;
 
 namespace Projek_Lab_PSD.Handlers
 {
     public class TransactionHandler
     {
+        public static List<TransactionHeader> GetTransactionHeaders()
+        {
+            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
+            return thRepo.GetTransactionHeaders();
+        }
+
         public static List<TransactionHeader> GetTransactions()
         {
             TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
@@ -44,6 +51,18 @@ namespace Projek_Lab_PSD.Handlers
             int Quantity = CartRepository.GetQuantityByMakeupID(MakeupID);
 
             tdRepo.InsertTransactionDetail(TransactionID, MakeupID, Quantity);
+        }
+
+        public static List<TransactionHeader> GetTransactionHeadersByUserID(int UserID)
+        {
+            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
+            return thRepo.GetTransactionHeadersByUserID(UserID);
+        }
+
+        public static List<TransactionDetail> GetTransactionDetailsByID(int transactionId)
+        {
+            TransactionDetailRepository tdRepo = new TransactionDetailRepository();
+            return tdRepo.GetTransactionDetailsByID(transactionId);
         }
 
         public static DateTime GenerateTransactionDate()

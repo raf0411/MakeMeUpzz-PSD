@@ -30,42 +30,22 @@ namespace Projek_Lab_PSD.Views
             }
         }
 
-        public int GenerateMakeupTypeID()
-        {
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-
-            int newID = 0;
-            int lastID = makeupTypeRepo.GetLastMakeupTypeID();
-
-            if (lastID == null)
-            {
-                lastID = 1;
-            }
-            else
-            {
-                lastID++;
-            }
-
-            newID = lastID;
-
-            return newID;
-        }
-
         protected void InsertBtn_Click(object sender, EventArgs e)
         {
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-
-            int MakeupTypeID = GenerateMakeupTypeID();
             String MakeupTypeName = MakeupTypeNameTB.Text;
 
             ErrorLbl.Text = MakeupTypeController.validateMakeupType(MakeupTypeName);
 
             if (ErrorLbl.Text.Equals(""))
             {
-                MakeupTypeHandler.InsertMakeupType(MakeupTypeName);
+                MakeupTypeController.InsertMakeupType(MakeupTypeName);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }  
         }
 
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
+        }
     }
 }

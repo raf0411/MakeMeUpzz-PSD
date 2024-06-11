@@ -658,15 +658,22 @@
       <DependentUpon>MakeMeUpzzzModel.edmx</DependentUpon>
       <LastGenOutput>MakeMeUpzzzModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Styles\ChangePassword.css" />
+    <Content Include="Styles\HandleTransaction.css" />
     <Content Include="Styles\Home.css" />
     <Content Include="Styles\InsertUpdate.css" />
     <Content Include="Styles\Login.css" />
     <Content Include="Styles\Main.css" />
     <Content Include="Styles\ManageMakeup.css" />
     <Content Include="Styles\Navbar.css" />
+    <Content Include="Styles\Order.css" />
     <Content Include="Styles\OrderMakeup.css" />
     <Content Include="Styles\Profile.css" />
     <Content Include="Styles\Register.css" />
+    <Content Include="Styles\TransactionDetail.css" />
+    <Content Include="Styles\TransactionHistory.css" />
+    <Content Include="Styles\TransactionReport.css" />
+    <Content Include="Styles\UpdateMakeup.css" />
     <Content Include="Styles\UpdateProfile.css" />
     <Content Include="Views\ChangePassword.aspx" />
     <Content Include="Views\HandleTransaction.aspx" />
@@ -695,6 +702,7 @@
     <Compile Include="Controllers\MakeupController.cs" />
     <Compile Include="Controllers\MakeupTypeController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Datasets\Dataset.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

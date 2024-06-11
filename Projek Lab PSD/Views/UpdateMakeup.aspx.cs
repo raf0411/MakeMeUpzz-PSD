@@ -30,31 +30,27 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            MakeupRepository makeupRepo = new MakeupRepository();
-            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository(); 
-
             if(IsPostBack == false)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
-                Makeup updateMakeup = makeupRepo.GetMakeupByID(id);
+                Makeup updateMakeup = MakeupController.GetMakeupByID(id);
 
                 if(updateMakeup != null)
                 {
                     MakeupNameTB.Text = updateMakeup.MakeupName;
                     MakeupPriceTB.Text = updateMakeup.MakeupPrice.ToString();
                     MakeupWeightTB.Text = updateMakeup.MakeupWeight.ToString();
-                    List<String> makeupTypeNames = makeupTypeRepo.GetMakeupTypeNames();
-                    List<String> makeupBrandNames = makeupBrandRepo.GetMakeupBrandNames();
+                    List<String> makeupTypeNames = MakeupTypeController.GetMakeupTypeNames();
+                    List<String> makeupBrandNames = MakeupBrandController.GetMakeupBrandNames();
 
                     MakeupTypeDropdown.DataSource = makeupTypeNames;
                     MakeupBrandDropdown.DataSource = makeupBrandNames;
 
                     MakeupTypeDropdown.DataBind();
-                    MakeupTypeDropdown.SelectedValue = makeupTypeRepo.GetMakeupTypeNameByID(id);
+                    MakeupTypeDropdown.SelectedValue = MakeupTypeController.GetMakeupTypeNameByID(id);
 
                     MakeupBrandDropdown.DataBind();
-                    MakeupBrandDropdown.SelectedValue = makeupBrandRepo.GetMakeupBrandNameByID(id);
+                    MakeupBrandDropdown.SelectedValue = MakeupBrandController.GetMakeupBrandNameByID(id);
 
                 }
                 else
@@ -77,9 +73,14 @@ namespace Projek_Lab_PSD.Views
 
             if(ErrorLbl.Text.Equals(""))
             {
-                MakeupHandler.UpdateMakeup(updateID, makeupName, makeupPrice, makeupWeight, makeupTypeName, makeupBrandName);
+                MakeupController.UpdateMakeup(updateID, makeupName, makeupPrice, makeupWeight, makeupTypeName, makeupBrandName);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }
+        }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
         }
     }
 }

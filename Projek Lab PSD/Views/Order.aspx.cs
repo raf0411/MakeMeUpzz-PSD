@@ -30,8 +30,6 @@ namespace Projek_Lab_PSD.Views
                     Response.Redirect("Home.aspx");
                 }
             }
-
-            CartRepository cartRepo = new CartRepository();
         }
 
         protected void OrderBtn_Click(object sender, EventArgs e)
@@ -44,7 +42,7 @@ namespace Projek_Lab_PSD.Views
 
             if (ErrorLbl.Text.Equals(""))
             {
-                OrderHandler.InsertCart(userID, makeupID, quantity);
+                OrderController.InsertCart(userID, makeupID, quantity);
                 Response.Redirect("~/Views/OrderMakeup.aspx");
             }
         }

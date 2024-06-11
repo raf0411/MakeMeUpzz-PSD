@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Handlers;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Handlers;
 using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
@@ -35,11 +36,8 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            MakeupRepository makeupRepo = new MakeupRepository();
-            CartRepository cartRepo = new CartRepository();
-
-            makeups = makeupRepo.GetMakeups();
-            carts = cartRepo.GetCartsByUserID(user.UserID);
+            makeups = MakeupController.GetMakeups();
+            carts = OrderController.GetCartsByUserID(user.UserID);
 
             CartsGrid.DataSource = carts;
             MakeupsGrid.DataSource = makeups;
@@ -63,15 +61,13 @@ namespace Projek_Lab_PSD.Views
 
         protected void ClearCartBtn_Click(object sender, EventArgs e)
         {
-            OrderHandler.DeleteCartByUserID(user.UserID);
+            OrderController.DeleteCartByUserID(user.UserID);
             RefreshCartGridView();
         }
 
         public void RefreshCartGridView()
         {
-            CartRepository cartRepo = new CartRepository();
-
-            carts = cartRepo.GetCartsByUserID(user.UserID);
+            carts = OrderController.GetCartsByUserID(user.UserID);
 
             CartsGrid.DataSource = carts;
             CartsGrid.DataBind();
@@ -80,8 +76,8 @@ namespace Projek_Lab_PSD.Views
         protected void CheckoutBtn_Click(object sender, EventArgs e)
         {
             int UserID = user.UserID;
-            TransactionHandler.InsertTransaction(UserID);
-            TransactionHandler.InsertTransactionDetail(UserID);
+            TransactionController.InsertTransaction(UserID);
+            TransactionController.InsertTransactionDetail(UserID);
 
             CheckoutLbl.ForeColor = System.Drawing.Color.Green;
             CheckoutLbl.Text = "Checkout Successful!";

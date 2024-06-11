@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -38,10 +39,8 @@ namespace Projek_Lab_PSD.Views
                 AdminGridView.Visible = true;
             }
 
-            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
-
-            customerTransactions = thRepo.GetTransactionHeadersByUserID(user.UserID);
-            adminViewTransactions = thRepo.GetTransactionHeaders();
+            customerTransactions = TransactionController.GetTransactionHeadersByUserID(user.UserID);
+            adminViewTransactions = TransactionController.GetTransactionHeaders();
 
             CustomerGridView.DataSource = customerTransactions;
             CustomerGridView.DataBind();

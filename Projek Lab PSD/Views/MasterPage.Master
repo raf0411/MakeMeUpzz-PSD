@@ -14,6 +14,13 @@
     <link href="/Styles/InsertUpdate.css" rel="stylesheet" />
     <link href="/Styles/OrderMakeup.css" rel="stylesheet" />
     <link href="/Styles/Profile.css" rel="stylesheet" />
+    <link href="/Styles/Order.css" rel="stylesheet" />
+    <link href="/Styles/TransactionHistory.css" rel="stylesheet" />
+    <link href="/Styles/ChangePassword.css" rel="stylesheet" />
+    <link href="/Styles/TransactionDetail.css" rel="stylesheet" />
+    <link href="/Styles/UpdateMakeup.css" rel="stylesheet" />
+    <link href="/Styles/HandleTransaction.css" rel="stylesheet" />
+    <link href="/Styles/TransactionReport.css" rel="stylesheet" />
     <link href="/Styles/UpdateProfile.css" rel="stylesheet" />
 
     <%-- FONTS --%>

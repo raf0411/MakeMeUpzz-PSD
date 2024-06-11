@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
 
-    <div class="container">
+    <div class="update-makeup-container">
         <h1>Update Makeup</h1>
 
         <h1><%=Request.QueryString["id"] %></h1>
@@ -14,12 +14,12 @@
 
         <div class="input-box">
             <asp:Label ID="MakeupPriceLbl" runat="server" Text="Makeup Price"></asp:Label>
-            <asp:TextBox ID="MakeupPriceTB" runat="server" CssClass="input"></asp:TextBox>
+            <asp:TextBox TextMode="Number" ID="MakeupPriceTB" runat="server" Text="0" CssClass="input"></asp:TextBox>
         </div>
 
         <div class="input-box">
             <asp:Label ID="MakeupWeightLbl" runat="server" Text="Makeup Weight"></asp:Label>
-            <asp:TextBox ID="MakeupWeightTB" runat="server" CssClass="input"></asp:TextBox>
+            <asp:TextBox TextMode="Number" ID="MakeupWeightTB" runat="server" Text="0" CssClass="input"></asp:TextBox>
         </div>
 
         <div class="input-box">
@@ -38,6 +38,10 @@
 
         <div>
             <asp:Button CssClass="update-btn" ID="UpdateBtn" runat="server" Text="Update" OnClick="UpdateBtn_Click" />
+        </div>
+
+        <div>
+            <asp:Button CssClass="update-btn" ID="BackBtn" runat="server" Text="Back to Manage Makeup" OnClick="BackBtn_Click" />
         </div>
     </div>
 </asp:Content>
