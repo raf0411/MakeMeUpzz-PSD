@@ -13,7 +13,7 @@ namespace Projek_Lab_PSD.Repositories
 
         public List<MakeupBrand> GetMakeupBrands()
         {
-            return (from x in db.MakeupBrands select x).ToList();
+            return (from x in db.MakeupBrands orderby x.MakeupBrandRating descending select x).ToList();
         }
 
         public int GetLastMakeupBrandID()

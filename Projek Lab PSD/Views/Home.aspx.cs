@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,6 @@ namespace Projek_Lab_PSD.Views
         {
             ListGridContainer.Visible = false;
             GridCustomerView.Visible = false;
-
-            UserRepository userRepo = new UserRepository();
-            MakeupRepository makeupRepo = new MakeupRepository();
 
             if (Session["user"] == null && Request.Cookies["user_cookie"] == null)
             {
@@ -68,8 +66,13 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            users = userRepo.GetCustomers();
-            makeups = makeupRepo.GetMakeups();
+            FetchData();
+        }
+
+        public void FetchData()
+        {
+            users = AuthController.GetUsers();
+            makeups = MakeupController.GetMakeups();
 
             MakeupsGrid.DataSource = makeups;
             UsersGrid.DataSource = users;

@@ -12,12 +12,12 @@
 
             <div class="input-box">
                 <asp:Label ID="MakeupPriceLbl" runat="server" Text="Makeup Price"></asp:Label>
-                <asp:TextBox TextMode="Number" ID="MakeupPriceTB" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox TextMode="Number" ID="MakeupPriceTB" runat="server" Text="0" CssClass="input"></asp:TextBox>
             </div>
 
             <div class="input-box">
                 <asp:Label ID="MakeupWeightLbl" runat="server" Text="Makeup Weight"></asp:Label>
-                <asp:TextBox TextMode="Number" ID="MakeupWeightTB" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox TextMode="Number" ID="MakeupWeightTB" Text="0" runat="server" CssClass="input"></asp:TextBox>
             </div>
 
             <div class="input-box">
@@ -36,6 +36,10 @@
 
             <div>
                 <asp:Button CssClass="insert-btn" ID="InsertBtn" runat="server" Text="Insert" OnClick="InsertBtn_Click" />
+            </div>
+
+            <div>
+                <asp:Button CssClass="update-btn" ID="BackBtn" runat="server" Text="Back to Manage Makeup" OnClick="BackBtn_Click" />
             </div>
         </div>
     </div>

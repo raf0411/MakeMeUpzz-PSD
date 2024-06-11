@@ -39,9 +39,14 @@ namespace Projek_Lab_PSD.Views
 
             if (ErrorLbl.Text.Equals(""))
             {
-                MakeupBrandHandler.InsertMakeupBrand(MakeupBrandName, MakeupBrandRating);
+                MakeupBrandController.InsertMakeupBrand(MakeupBrandName, MakeupBrandRating);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }
+        }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Projek_Lab_PSD.Repositories;
+﻿using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +36,41 @@ namespace Projek_Lab_PSD.Controllers
             }
 
             return response;
+        }
+
+        public static List<MakeupType> GetMakeupTypes()
+        {
+            return MakeupTypeHandler.GetMakeupTypes();
+        }
+
+        public static void DeleteMakeupType(int MakeupTypeID)
+        {
+            MakeupTypeHandler.DeleteMakeupType(MakeupTypeID);
+        }
+
+        public static List<String> GetMakeupTypeNames()
+        {
+            return MakeupTypeHandler.GetMakeupTypeNames();
+        }
+
+        public static void InsertMakeupType(String name)
+        {
+            MakeupTypeHandler.InsertMakeupType(name);
+        }
+
+        public static String GetMakeupTypeNameByID(int MakeupTypeID)
+        {
+            return MakeupTypeHandler.GetMakeupTypeNameByID(MakeupTypeID);
+        }
+
+        public static MakeupType GetMakeupTypeByID(int MakeupTypeID)
+        {
+            return MakeupTypeHandler.GetMakeupTypeByID(MakeupTypeID);
+        }
+
+        public static void UpdateMakeupType(int updateId, String name)
+        {
+            MakeupTypeHandler.UpdateMakeupType(updateId, name);
         }
     }
 }

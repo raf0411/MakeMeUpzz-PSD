@@ -1,8 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/MasterPage.Master" AutoEventWireup="true" CodeBehind="UpdateMakeupBrand.aspx.cs" Inherits="Projek_Lab_PSD.Views.UpdateMakeupBrand" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    <div class="container">
+    <div class="update-makeup-brand-container">
         <h1>Update Makeup Brand</h1>
+
+        <h2>Makeup Brand ID: <%=Request.QueryString["id"] %></h2>
 
         <div class="form">
             <div class="input-box">
@@ -12,7 +14,7 @@
 
             <div class="input-box">
                 <asp:Label ID="MakeupBrandRatingLbl" runat="server" Text="Rating"></asp:Label>
-                <asp:TextBox TextMode="Number" ID="MakeupBrandRatingTB" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox TextMode="Number" ID="MakeupBrandRatingTB" runat="server" Text="0" CssClass="input"></asp:TextBox>
             </div>
 
             <div>
@@ -21,6 +23,10 @@
 
             <div>
                 <asp:Button CssClass="update-btn" ID="UpdateBtn" runat="server" Text="Update" OnClick="UpdateBtn_Click" />
+            </div>
+
+            <div>
+                <asp:Button CssClass="update-btn" ID="BackBtn" runat="server" Text="Back to Manage Makeup" OnClick="BackBtn_Click" />
             </div>
         </div>
     </div>

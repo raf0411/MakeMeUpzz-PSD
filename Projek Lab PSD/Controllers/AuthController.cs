@@ -1,4 +1,6 @@
 ﻿using Projek_Lab_PSD.Handlers;
+using Projek_Lab_PSD.Models;
+using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,11 @@ namespace Projek_Lab_PSD.Controllers
 {
     public class AuthController
     {
+        public static void UpdateUser(int UserID, String Username, String Email, String Gender, DateTime UserDOB)
+        {
+            UserHandler.UpdateUser(UserID, Username, Email, Gender, UserDOB);
+        }
+
         public static String checkUsername(String username)
         {
             String response = "";
@@ -52,10 +59,6 @@ namespace Projek_Lab_PSD.Controllers
             if (password.Equals(""))
             {
                 response = "Password may not be empty!";
-            }
-            else if (password.Length < 5 || password.Length > 15)
-            {
-                response = "Username must be between 5 and 15 characters!";
             }
             else if (!IsAlphanumeric(password))
             {
@@ -109,7 +112,7 @@ namespace Projek_Lab_PSD.Controllers
             return response;
         }
 
-        public static String doLogin(String username, String password)
+        public static String validateLogin(String username, String password)
         {
             String response = checkUsername(username);
 
@@ -126,7 +129,12 @@ namespace Projek_Lab_PSD.Controllers
             return response;
         }
 
-        public static String doRegister(String username, String password, String email, String dob, int gender, String confirmPassword)
+        public static void Register(String username, String password, String email, String dob, String gender)
+        {
+            UserHandler.InsertUser(username, password, email, dob, gender);
+        }
+
+        public static String validateRegister(String username, String password, String email, String dob, int gender, String confirmPassword)
         {
             String response = checkUsername(username);
 
@@ -224,6 +232,21 @@ namespace Projek_Lab_PSD.Controllers
             String pattern = @"^[a-zA-Z0-9]+$";
             Regex regex = new Regex(pattern);
             return regex.IsMatch(password);
+        }
+
+        public static List<User> GetUsers()
+        {
+            return UserHandler.GetUsers();
+        }
+
+        public static void UpdatePassword(int UserID, String Password)
+        {
+            UserHandler.UpdatePassword(UserID, Password);
+        }
+
+        public static User GetUser(String Username, String Password)
+        {
+            return UserHandler.GetUser(Username, Password);
         }
     }
 }

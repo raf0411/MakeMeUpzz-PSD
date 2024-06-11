@@ -9,7 +9,25 @@ namespace Projek_Lab_PSD.Handlers
 {
     public class MakeupTypeHandler
     {
-        public void DeleteMakeupType(int MakeupTypeID)
+        public static MakeupType GetMakeupTypeByID(int MakeupTypeID)
+        {
+            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            return makeupTypeRepo.GetMakeupTypeByID(MakeupTypeID);
+        }
+
+        public static String GetMakeupTypeNameByID(int MakeupTypeID)
+        {
+            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            return makeupTypeRepo.GetMakeupTypeNameByID(MakeupTypeID);
+        }
+
+        public static List<String> GetMakeupTypeNames()
+        {
+            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            return makeupTypeRepo.GetMakeupTypeNames();
+        }
+
+        public static void DeleteMakeupType(int MakeupTypeID)
         {
             MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
             MakeupRepository makeupRepo = new MakeupRepository();
@@ -69,5 +87,10 @@ namespace Projek_Lab_PSD.Handlers
             return newID;
         }
 
+        public static List<MakeupType> GetMakeupTypes()
+        {
+            MakeupTypeRepository makeupTypeRepo = new MakeupTypeRepository();
+            return makeupTypeRepo.GetMakeupTypes();
+        }
     }
 }

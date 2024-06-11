@@ -22,15 +22,6 @@ namespace Projek_Lab_PSD.Views
             else
             {
                 user = (User)Session["user"]; ;
-
-                if (user.UserRole.Equals("Admin"))
-                {
-                    // TODO
-                }
-                else if (user.UserRole.Equals("Customer"))
-                {
-                    // TODO
-                }
             }
         }
 
@@ -47,7 +38,7 @@ namespace Projek_Lab_PSD.Views
 
             if (ErrorLbl.Text.Equals(""))
             {
-                UserHandler.UpdateUser(userId, newUsername, newEmail, newGender, Convert.ToDateTime(newDOB));
+                AuthController.UpdateUser(userId, newUsername, newEmail, newGender, Convert.ToDateTime(newDOB));
                 Response.Redirect("Profile.aspx");
             }
         }

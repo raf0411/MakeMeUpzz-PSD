@@ -13,7 +13,7 @@
 
             <div class="input-box">
                 <asp:Label ID="MakeupBrandRatingLbl" runat="server" Text="Rating"></asp:Label>
-                <asp:TextBox TextMode="Number" ID="MakeupBrandRatingTB" runat="server" CssClass="input"></asp:TextBox>
+                <asp:TextBox TextMode="Number" ID="MakeupBrandRatingTB" runat="server" CssClass="input" Text="0"></asp:TextBox>
             </div>
 
             <div>
@@ -22,6 +22,10 @@
 
             <div>
                 <asp:Button CssClass="insert-btn" ID="InsertBtn" runat="server" Text="Insert" OnClick="InsertBtn_Click" />
+            </div>
+
+            <div>
+                <asp:Button CssClass="update-btn" ID="BackBtn" runat="server" Text="Back to Manage Makeup" OnClick="BackBtn_Click" />
             </div>
         </div>
     </div>

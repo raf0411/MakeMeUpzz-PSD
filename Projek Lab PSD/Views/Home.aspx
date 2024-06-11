@@ -18,7 +18,7 @@
             <div class="user-list-container">
                 <h1>Users List</h1>
 
-                <asp:ListBox ID="UserList" runat="server" Width="300px"></asp:ListBox>
+                <asp:ListBox ID="UserList" runat="server" Width="300px" Height="200px"></asp:ListBox>
             </div>
 
             <div class="grid-view">

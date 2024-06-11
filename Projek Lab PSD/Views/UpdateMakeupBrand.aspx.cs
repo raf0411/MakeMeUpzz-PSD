@@ -29,12 +29,10 @@ namespace Projek_Lab_PSD.Views
                 }
             }
 
-            MakeupBrandRepository makeupBrandRepo = new MakeupBrandRepository();
-
             if (IsPostBack == false)
             {
                 int id = Convert.ToInt32(Request.QueryString["id"]);
-                MakeupBrand updateMakeupBrand = makeupBrandRepo.GetMakeupBrandByID(id);
+                MakeupBrand updateMakeupBrand = MakeupBrandController.GetMakeupBrandByID(id);
 
                 if (updateMakeupBrand != null)
                 {
@@ -58,10 +56,15 @@ namespace Projek_Lab_PSD.Views
 
             if(ErrorLbl.Text.Equals(""))
             {
-                MakeupBrandHandler.UpdateMakeupBrand(updateID, makeupBrandName, makeupBrandRating);
+                MakeupBrandController.UpdateMakeupBrand(updateID, makeupBrandName, makeupBrandRating);
                 Response.Redirect("~/Views/ManageMakeup.aspx");
             }
 
+        }
+
+        protected void BackBtn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Views/ManageMakeup.aspx");
         }
     }
 }

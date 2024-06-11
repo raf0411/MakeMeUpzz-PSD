@@ -9,15 +9,21 @@ namespace Projek_Lab_PSD.Handlers
 {
     public class UserHandler
     {
+        public static User GetUser(String Username, String Password)
+        {
+            UserRepository userRepo = new UserRepository();
+            return userRepo.GetUser(Username, Password);
+        }
+
         public static String doLogin(String username, String password)
         {
             UserRepository userRepo = new UserRepository();
             User user = userRepo.GetUser(username, password);
 
-            return user != null ? "Success" : "Username or Password is incorrect";
+            return user != null ? "Login Successful" : "Username or Password is incorrect";
         }
 
-        public static void doRegister(String username, String password, String email, String dob, String gender)
+        public static void InsertUser(String username, String password, String email, String dob, String gender)
         {
             UserRepository userRepo = new UserRepository();
 
@@ -26,7 +32,17 @@ namespace Projek_Lab_PSD.Handlers
             String newEmail = email;
             DateTime newDOB = Convert.ToDateTime(dob);
             String newGender = gender;
-            String newRole = "Customer";
+            String newRole;
+
+            if (username.Equals("admin"))
+            {
+                newRole = "Admin";
+            }
+            else
+            {
+                newRole = "Customer";
+            }
+
             String newPassword = password;
 
             userRepo.InsertUser(newID, newUsername, newEmail, newDOB, newGender, newRole, newPassword);
@@ -63,6 +79,12 @@ namespace Projek_Lab_PSD.Handlers
             newID = lastID;
 
             return newID;
+        }
+
+        public static List<User> GetUsers()
+        {
+            UserRepository userRepo = new UserRepository();
+            return userRepo.GetCustomers();
         }
     }
 }

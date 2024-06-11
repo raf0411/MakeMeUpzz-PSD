@@ -13,19 +13,14 @@ namespace Projek_Lab_PSD.Views
     public partial class Login : System.Web.UI.Page
     {
         private MakeMeUpzzDatabaseEntities db = DatabaseSingleton.GetInstance();
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
 
         protected void LoginBtn_Click(object sender, EventArgs e)
         {
-            UserRepository userRepo = new UserRepository();
             String username = UsernameTB.Text;
             String password = PasswordTB.Text;
             bool isRemember = rememberMeCheck.Checked;
 
-            var user = userRepo.GetUser(username, password);
+            var user = AuthController.GetUser(username, password);
 
             ErrorLbl.ForeColor = System.Drawing.Color.Red;
 
@@ -57,7 +52,7 @@ namespace Projek_Lab_PSD.Views
             }
             else if(user == null)
             {
-                ErrorLbl.Text = AuthController.doLogin(username, password);
+                ErrorLbl.Text = AuthController.validateLogin(username, password);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Handlers;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Handlers;
 using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
@@ -40,14 +41,13 @@ namespace Projek_Lab_PSD.Views
         {
             GridViewRow row = HandleTransactionGrid.Rows[e.NewSelectedIndex];
             int id = Convert.ToInt32(row.Cells[0].Text);
-            TransactionHandler.UpdateStatusByID(id);
+            TransactionController.UpdateStatusByID(id);
             RefreshGridView();
         }
 
         public void RefreshGridView()
         {
-            TransactionHeaderRepository thRepo = new TransactionHeaderRepository();
-            transactionHeaders = thRepo.GetTransactionHeaders();
+            transactionHeaders = TransactionController.GetTransactionHeaders();
             HandleTransactionGrid.DataSource = transactionHeaders;
             HandleTransactionGrid.DataBind();
         }

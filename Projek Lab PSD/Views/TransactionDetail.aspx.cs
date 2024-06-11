@@ -1,4 +1,5 @@
-﻿using Projek_Lab_PSD.Models;
+﻿using Projek_Lab_PSD.Controllers;
+using Projek_Lab_PSD.Models;
 using Projek_Lab_PSD.Repositories;
 using System;
 using System.Collections.Generic;
@@ -25,9 +26,8 @@ namespace Projek_Lab_PSD.Views
             }
 
             int transactionId = Convert.ToInt32(Request.QueryString["id"]);
-            TransactionDetailRepository tdRepo = new TransactionDetailRepository();
 
-            TransactionDetailGrid.DataSource = tdRepo.GetTransactionDetailsByID(transactionId);
+            TransactionDetailGrid.DataSource = TransactionController.GetTransactionDetailsByID(transactionId);
             TransactionDetailGrid.DataBind();
         }
     }
